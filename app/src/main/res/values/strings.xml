@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">DailyLoss</string>
+    <string name="zero">0</string>
+
+    <string name="main_page_1">Welcome!</string>
+    <string name="main_page_2">Jakub</string>
+    <string name="main_page_3">Czajka</string>
+
+    <string name="main_page_4">Summary</string>
+    <string name="main_page_5">Facts</string>
+
+    <string name="main_page_6">Consumed Today</string>
+    <string name="main_page_7">Eaten</string>
+    <string name="main_page_8">Remaining</string>
+    <string name="main_page_9">Burned</string>
+
+    <string name="main_page_10">Protein</string>
+    <string name="main_page_11">Carbs</string>
+    <string name="main_page_12">Fats</string>
+    <string name="main_page_13">g</string>
+
+    <string name="main_page_14">Add Meal</string>
+    <string name="main_page_15">Add Workout</string>
+</resources>
