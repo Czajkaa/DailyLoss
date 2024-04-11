@@ -21,4 +21,8 @@
 
     <string name="main_page_14">Add Meal</string>
     <string name="main_page_15">Add Workout</string>
+
+    <string name="main_page_16">Water Intakes</string>
+    <string name="main_page_17">/</string>
+    <string name="main_page_18">ml</string>
 </resources>
