@@ -64,18 +64,37 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/mainPage_imageButton1"
-                android:layout_width="30dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:background="@color/transparent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/icon_1"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="@+id/mainPage_linearLayout1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/mainPage_imageButton1"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_1"
+                    android:layout_marginEnd="15dp"
+                    tools:ignore="ContentDescription" />
+
+                <ImageButton
+                    android:id="@+id/mainPage_imageButton2"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_4"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:id="@+id/mainPage_linearLayout3"
@@ -91,7 +110,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="25dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -112,6 +131,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
                         android:fontFamily="@font/quicksand1"
+                        android:textAllCaps="false"
                         android:text="@string/main_page_5"
                         android:textColor="@color/button_1"
                         android:textSize="16sp"
@@ -277,7 +297,8 @@
                                         android:progress="10"
                                         android:progressDrawable="@drawable/progresbar_protein"
                                         app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent" />
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        tools:ignore="TooDeepLayout" />
 
                                     <TextView
                                         android:id="@+id/mainPage_text12"
@@ -471,14 +492,16 @@
                     android:layout_marginBottom="5dp">
 
                     <Button
-                        android:id="@+id/mainPage_imageButton2"
-                        android:layout_width="176dp"
+                        android:id="@+id/mainPage_imageButton3"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/meal_image"
-                        android:layout_margin="1dp"
+                        android:layout_marginVertical="1dp"
+                        android:layout_marginHorizontal="5dp"
                         android:stateListAnimator="@null"
                         android:paddingStart="35dip"
                         android:paddingEnd="25dip"
+                        android:textAllCaps="false"
                         android:background="@drawable/button_1"
                         android:text="@string/main_page_14"
                         android:fontFamily="@font/quicksand1"
@@ -487,25 +510,27 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/mainPage_imageButton3"/>
+                        app:layout_constraintEnd_toStartOf="@+id/mainPage_imageButton4"/>
 
                     <Button
-                        android:id="@+id/mainPage_imageButton3"
-                        android:layout_width="176dp"
+                        android:id="@+id/mainPage_imageButton4"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/dumbbell_image"
-                        android:layout_margin="1dp"
+                        android:layout_marginVertical="1dp"
+                        android:layout_marginHorizontal="5dp"
                         android:stateListAnimator="@null"
                         android:paddingStart="15dip"
                         android:paddingEnd="0dip"
                         android:background="@drawable/button_1"
                         android:text="@string/main_page_15"
+                        android:textAllCaps="false"
                         android:fontFamily="@font/quicksand1"
                         android:textColor="@color/gray"
                         android:textSize="13sp"
-                        app:layout_constraintTop_toTopOf="@+id/mainPage_imageButton2"
-                        app:layout_constraintBottom_toBottomOf="@+id/mainPage_imageButton2"
-                        app:layout_constraintStart_toEndOf="@+id/mainPage_imageButton2"
+                        app:layout_constraintTop_toTopOf="@+id/mainPage_imageButton3"
+                        app:layout_constraintBottom_toBottomOf="@+id/mainPage_imageButton3"
+                        app:layout_constraintStart_toEndOf="@+id/mainPage_imageButton3"
                         app:layout_constraintEnd_toEndOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
@@ -638,7 +663,8 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -665,7 +691,8 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -692,7 +719,8 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -719,7 +747,8 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -746,7 +775,8 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -773,7 +803,8 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -800,7 +831,8 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -818,7 +850,8 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:gravity="center"
-                                android:layout_gravity="center" >
+                                android:layout_gravity="center"
+                                tools:ignore="TooManyViews">
 
                                 <ImageButton
                                     android:id="@+id/mainPage_card8_image"
@@ -827,7 +860,8 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -854,7 +888,8 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -881,13 +916,12 @@
                                     android:adjustViewBounds="true"
                                     android:background="@color/transparent"
                                     android:scaleType="fitCenter"
-                                    android:src="@drawable/empty_glass"/>
+                                    android:src="@drawable/empty_glass"
+                                    tools:ignore="ContentDescription" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
-
                     </GridLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

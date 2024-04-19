@@ -1,6 +1,7 @@
 package com.example.dailyloss
 
 import android.R.attr.data
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Toast
@@ -8,11 +9,20 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class Main_Page : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
 
+        water()
+        val user = findViewById<ImageButton>(R.id.mainPage_imageButton2)
+        val profile = Intent(this, Profile::class.java)
+        user.setOnClickListener {
+            startActivity(profile)
+        }
+    }
+
+
+    private fun water() {
         val card1 = findViewById<ImageButton>(R.id.mainPage_card1_image)
         val card2 = findViewById<ImageButton>(R.id.mainPage_card2_image)
         val card3 = findViewById<ImageButton>(R.id.mainPage_card3_image)
@@ -89,7 +99,7 @@ class Main_Page : AppCompatActivity() {
                 0 -> {
                     if (card1Status == 0) {
                         card1.setImageResource(R.drawable.full_glass); card1Status = 1 }
-                    else if (card1Status == 1 && card2Status == 0) {
+                    else if (card1Status == 1) {
                         card2.setImageResource(R.drawable.full_glass); card2Status = 1 }
                 }
             }

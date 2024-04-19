@@ -25,4 +25,10 @@
     <string name="main_page_16">Water Intakes</string>
     <string name="main_page_17">/</string>
     <string name="main_page_18">ml</string>
+
+
+    <string name="profile_page_1">Profile</string>
+    <string name="profile_page_2">Save</string>
+    <string name="profile_page_3">Age</string>
+    <string name="profile_page_4">Gender</string>
 </resources>
