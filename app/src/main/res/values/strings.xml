@@ -31,4 +31,28 @@
     <string name="profile_page_2">Save</string>
     <string name="profile_page_3">Age</string>
     <string name="profile_page_4">Gender</string>
+    <string name="profile_page_5">Height</string>
+    <string name="profile_page_6">cm</string>
+    <string name="profile_page_7">Weight</string>
+    <string name="profile_page_8">kg</string>
+    <string name="profile_page_9">What is your Activity level</string>
+    <string name="profile_page_10">What is your Goal</string>
+
+
+
+    <string-array name="activity">
+        <item>Sedentary Life Style</item>
+        <item>Light Exercise</item>
+        <item>Moderate Exercise</item>
+        <item>Hard Exercise</item>
+        <item>Physical Job</item>
+    </string-array>
+
+    <string-array name="goal">
+        <item>Maintain Weight</item>
+        <item>Mid-Weight Loss</item>
+        <item>Weight Loss</item>
+        <item>Mid Weight Gain</item>
+        <item>Weight Gain</item>
+    </string-array>
 </resources>
