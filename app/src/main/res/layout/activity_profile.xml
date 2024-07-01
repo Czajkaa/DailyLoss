@@ -8,6 +8,7 @@
     tools:context=".Profile">
 
     <ScrollView
+        android:id="@+id/profile_scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background">
@@ -21,15 +22,14 @@
             android:orientation="horizontal">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/profile_constraintLayout1"
+                android:id="@+id/profile_titleLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" >
 
-
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/profile_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand2"
@@ -41,32 +41,19 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:fontFamily="@font/quicksand1"
-                    android:text="@string/profile_page_2"
-                    android:textColor="@color/button_1"
-                    android:textAllCaps="false"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/profile_constraintLayout2"
+                android:id="@+id/profile_nameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_constraintLayout1">
+                app:layout_constraintTop_toBottomOf="@+id/profile_titleLayout">
 
                 <EditText
-                    android:id="@+id/editTextText1"
+                    android:id="@+id/profile_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="1dp"
@@ -79,13 +66,13 @@
                     android:textSize="22sp"
                     android:background="@drawable/input_text"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/editTextText2"
+                    app:layout_constraintEnd_toStartOf="@+id/profile_subname"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/main_page_2" />
 
                 <EditText
-                    android:id="@+id/editTextText2"
+                    android:id="@+id/profile_subname"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="1dp"
@@ -100,33 +87,33 @@
                     android:textSize="22sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/editTextText1"
+                    app:layout_constraintStart_toEndOf="@+id/profile_name"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/profile_constraintLayout3"
+                android:id="@+id/profile_settingsLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_constraintLayout2">
+                app:layout_constraintTop_toBottomOf="@+id/profile_nameLayout">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/profile_constraintLayout4"
+                    android:id="@+id/profile_ageLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@drawable/input_text"
                     android:layout_marginVertical="1dp"
                     android:layout_marginHorizontal="5dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/profile_constraintLayout5"
-                    app:layout_constraintTop_toTopOf="@+id/profile_constraintLayout5"
-                    app:layout_constraintBottom_toBottomOf="@+id/profile_constraintLayout5">
+                    app:layout_constraintEnd_toStartOf="@+id/profile_genderLayout"
+                    app:layout_constraintTop_toTopOf="@+id/profile_genderLayout"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_genderLayout">
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/profile_ageTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/profile_page_3"
@@ -138,7 +125,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageButton
-                        android:id="@+id/imageButton"
+                        android:id="@+id/profile_ageMinus"
                         android:layout_width="35dp"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -147,12 +134,12 @@
                         android:scaleType="fitCenter"
                         android:src="@drawable/minus"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textView4"
-                        app:layout_constraintTop_toTopOf="@+id/textView4"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView4"/>
+                        app:layout_constraintEnd_toStartOf="@+id/profile_ageValue"
+                        app:layout_constraintTop_toTopOf="@+id/profile_ageValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_ageValue"/>
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/profile_ageValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/zero"
@@ -160,13 +147,13 @@
                         android:textColor="@color/black"
                         android:textSize="24sp"
                         android:layout_marginVertical="10dp"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton"
-                        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
-                        app:layout_constraintTop_toBottomOf="@+id/textView2"
+                        app:layout_constraintStart_toEndOf="@+id/profile_ageMinus"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_agePlus"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_ageTitle"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <ImageButton
-                        android:id="@+id/imageButton2"
+                        android:id="@+id/profile_agePlus"
                         android:layout_width="35dp"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -174,26 +161,26 @@
                         android:background="@drawable/button_2"
                         android:scaleType="fitCenter"
                         android:src="@drawable/add"
-                        app:layout_constraintStart_toEndOf="@+id/textView4"
+                        app:layout_constraintStart_toEndOf="@+id/profile_ageValue"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textView4"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView4"/>
+                        app:layout_constraintTop_toTopOf="@+id/profile_ageValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_ageValue"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/profile_constraintLayout5"
+                    android:id="@+id/profile_genderLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/input_text"
                     android:layout_marginVertical="1dp"
                     android:layout_marginHorizontal="5dp"
-                    app:layout_constraintStart_toEndOf="@+id/profile_constraintLayout4"
+                    app:layout_constraintStart_toEndOf="@+id/profile_ageLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/profile_genderTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/quicksand2"
@@ -205,7 +192,7 @@
                         app:layout_constraintTop_toTopOf="parent"/>
 
                     <ImageButton
-                        android:id="@+id/imageButton3"
+                        android:id="@+id/profile_genderMale"
                         android:layout_width="0dp"
                         android:layout_height="60dp"
                         android:layout_marginVertical="10dp"
@@ -218,12 +205,12 @@
                         android:scaleType="fitCenter"
                         android:src="@drawable/male"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-                        app:layout_constraintTop_toBottomOf="@+id/textView3"
+                        app:layout_constraintEnd_toStartOf="@+id/profile_genderFemale"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_genderTitle"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <ImageButton
-                        android:id="@+id/imageButton4"
+                        android:id="@+id/profile_genderFemale"
                         android:layout_width="0dp"
                         android:layout_height="60dp"
                         android:layout_marginVertical="10dp"
@@ -235,37 +222,36 @@
                         android:background="@drawable/button_3"
                         android:scaleType="fitCenter"
                         android:src="@drawable/female"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+                        app:layout_constraintStart_toEndOf="@+id/profile_genderMale"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/imageButton3"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"/>
+                        app:layout_constraintTop_toTopOf="@+id/profile_genderMale"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_genderMale"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/profile_constraintLayout6"
+                android:id="@+id/profile_settingsLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_constraintLayout3">
+                app:layout_constraintTop_toBottomOf="@+id/profile_settingsLayout1">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/profile_constraintLayout7"
+                    android:id="@+id/profile_heightLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@drawable/input_text"
                     android:layout_marginVertical="1dp"
                     android:layout_marginHorizontal="5dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/profile_constraintLayout8"
-                    app:layout_constraintTop_toTopOf="@+id/profile_constraintLayout8"
-                    app:layout_constraintBottom_toBottomOf="@+id/profile_constraintLayout8">
+                    app:layout_constraintEnd_toStartOf="@+id/profile_weightLayout"
+                    app:layout_constraintTop_toTopOf="@+id/profile_weightLayout"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_weightLayout">
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/profile_heightTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/quicksand2"
@@ -277,11 +263,12 @@
                         app:layout_constraintTop_toTopOf="parent"/>
 
                     <EditText
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/profile_heightValue"
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="@string/zero"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:background="@drawable/input_text"
                         android:fontFamily="@font/quicksand2"
                         android:textColor="@color/black"
@@ -289,11 +276,11 @@
                         android:layout_marginVertical="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView5"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_heightTitle"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/profile_heightUint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/quicksand2"
@@ -301,26 +288,26 @@
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:layout_marginStart="10dp"
-                        app:layout_constraintStart_toEndOf="@+id/textView6"
-                        app:layout_constraintTop_toTopOf="@+id/textView6"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView6"/>
+                        app:layout_constraintStart_toEndOf="@+id/profile_heightValue"
+                        app:layout_constraintTop_toTopOf="@+id/profile_heightValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_heightValue"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/profile_constraintLayout8"
+                    android:id="@+id/profile_weightLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/input_text"
                     android:layout_marginVertical="1dp"
                     android:layout_marginHorizontal="5dp"
-                    app:layout_constraintStart_toEndOf="@+id/profile_constraintLayout7"
+                    app:layout_constraintStart_toEndOf="@+id/profile_heightLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/profile_weightTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/quicksand2"
@@ -332,9 +319,10 @@
                         app:layout_constraintTop_toTopOf="parent"/>
 
                     <EditText
-                        android:id="@+id/textView9"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/profile_weightValue"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="@string/zero"
                         android:inputType="numberDecimal"
                         android:background="@drawable/input_text"
@@ -344,11 +332,11 @@
                         android:layout_marginVertical="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView8"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_weightTitle"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <TextView
-                        android:id="@+id/textView10"
+                        android:id="@+id/profile_weightUint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/quicksand2"
@@ -356,32 +344,31 @@
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:layout_marginStart="10dp"
-                        app:layout_constraintStart_toEndOf="@+id/textView9"
-                        app:layout_constraintTop_toTopOf="@+id/textView9"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView9"/>
+                        app:layout_constraintStart_toEndOf="@+id/profile_weightValue"
+                        app:layout_constraintTop_toTopOf="@+id/profile_weightValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_weightValue"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/profile_constraintLayout9"
+                android:id="@+id/profile_activityLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
                 android:layout_marginHorizontal="5dp"
                 android:paddingVertical="10dp"
                 android:background="@drawable/input_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_constraintLayout6">
+                app:layout_constraintTop_toBottomOf="@+id/profile_settingsLayout2">
 
                 <TextView
-                    android:id="@+id/question_text"
+                    android:id="@+id/profile_activityTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand2"
                     android:text="@string/profile_page_9"
+                    android:fontFamily="@font/quicksand2"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:layout_marginStart="15dp"
@@ -389,32 +376,30 @@
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/profile_activityValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/question_text"
+                    android:layout_below="@id/profile_activityTitle"
                     android:layout_marginHorizontal="15dp"
                     android:layout_marginTop="5dp"
-                    app:layout_constraintStart_toStartOf="@+id/question_text"
-                    app:layout_constraintTop_toBottomOf="@+id/question_text" />
+                    app:layout_constraintStart_toStartOf="@+id/profile_activityTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_activityTitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/profile_constraintLayout10"
+                android:id="@+id/profile_goalLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
                 android:layout_marginHorizontal="5dp"
                 android:paddingVertical="10dp"
                 android:background="@drawable/input_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_constraintLayout9"
-                app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/profile_activityLayout">
 
                 <TextView
-                    android:id="@+id/question_text2"
+                    android:id="@+id/profile_goalTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand2"
@@ -426,17 +411,687 @@
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/profile_goalValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/question_text2"
+                    android:layout_below="@id/profile_goalTitle"
                     android:layout_marginHorizontal="15dp"
                     android:layout_marginTop="5dp"
-                    app:layout_constraintStart_toStartOf="@+id/question_text2"
-                    app:layout_constraintTop_toBottomOf="@+id/question_text2" />
+                    app:layout_constraintStart_toStartOf="@+id/profile_goalTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_goalTitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profile_statsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_text"
+                android:paddingHorizontal="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_goalLayout">
 
+                <TextView
+                    android:id="@+id/profile_statsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand2"
+                    android:text="@string/profile_page_24"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/profile_bmrLayout"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_bmrLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:padding="2dp"
+                    android:background="@drawable/bmr"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/profile_bmiLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_statsTitle"
+                    app:layout_constraintBottom_toTopOf="@+id/profile_tdeeLayout">
+
+                    <ImageView
+                        android:id="@+id/profile_bmrImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/cardiogram"/>
+
+                    <ImageView
+                        android:id="@+id/profile_bmrArrow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/profile_bmrImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_bmrImage"
+                        android:src="@drawable/arrow_bmr"/>
+
+                    <TextView
+                        android:id="@+id/profile_bmrTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/profile_bmrImage"
+                        app:layout_constraintTop_toTopOf="@+id/profile_bmrImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_bmrImage"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/profile_page_11"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/BMR"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/profile_bmrUint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/profile_bmrButton"
+                        app:layout_constraintTop_toTopOf="@+id/profile_bmrButton"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_bmrButton"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/profile_page_12"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/BMR"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/profile_bmrButton"
+                        android:layout_width="180dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/stats_buttons"
+                        android:gravity="start|center_vertical"
+                        android:padding="16dp"
+                        android:text="@string/zero2"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/BMR"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_bmiLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
+                    android:padding="2dp"
+                    android:background="@drawable/bmi"
+                    app:layout_constraintStart_toEndOf="@+id/profile_bmrLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_statsTitle"
+                    app:layout_constraintBottom_toTopOf="@+id/profile_rmrLayout">
+
+                    <ImageView
+                        android:id="@+id/profile_bmiImage"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/speedometer"/>
+
+                    <ImageView
+                        android:id="@+id/profile_bmiArrow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/profile_bmiImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_bmiImage"
+                        android:src="@drawable/arrow_bmi"/>
+
+                    <TextView
+                        android:id="@+id/profile_bmiTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/profile_bmiImage"
+                        app:layout_constraintTop_toTopOf="@+id/profile_bmiImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_bmiImage"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/profile_page_13"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/BMI"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/profile_bmiUint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/profile_bmiButton"
+                        app:layout_constraintTop_toTopOf="@+id/profile_bmiButton"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_bmiButton"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/profile_page_14"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/BMI"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/profile_bmiButton"
+                        android:layout_width="180dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/stats_buttons"
+                        android:gravity="start|center_vertical"
+                        android:padding="16dp"
+                        android:text="@string/zero3"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/BMI"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_tdeeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="2dp"
+                    android:background="@drawable/tdee"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/profile_rmrLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_bmrLayout"
+                    app:layout_constraintBottom_toTopOf="@+id/profile_ibwLayout">
+
+                    <ImageView
+                        android:id="@+id/profile_tdeeImage"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/runner"/>
+
+                    <ImageView
+                        android:id="@+id/profile_tdeeArrow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/profile_tdeeImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_tdeeImage"
+                        android:src="@drawable/arrow_tdee"/>
+
+                    <TextView
+                        android:id="@+id/profile_tdeeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/profile_tdeeImage"
+                        app:layout_constraintTop_toTopOf="@+id/profile_tdeeImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_tdeeImage"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/profile_page_15"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/TDEE"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/profile_tdeeUint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/profile_tdeeButton"
+                        app:layout_constraintTop_toTopOf="@+id/profile_tdeeButton"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_tdeeButton"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/profile_page_12"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/TDEE"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/profile_tdeeButton"
+                        android:layout_width="180dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/stats_buttons"
+                        android:gravity="start|center_vertical"
+                        android:padding="16dp"
+                        android:text="@string/zero2"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/TDEE"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_rmrLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="2dp"
+                    android:background="@drawable/rmr"
+                    app:layout_constraintStart_toEndOf="@+id/profile_tdeeLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_bmiLayout"
+                    app:layout_constraintBottom_toTopOf="@+id/profile_lbwLayout">
+
+                    <ImageView
+                        android:id="@+id/profile_rmrImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/fire"/>
+
+                    <ImageView
+                        android:id="@+id/profile_rmrArrow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/profile_rmrImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_rmrImage"
+                        android:src="@drawable/arrow_rmr"/>
+
+                    <TextView
+                        android:id="@+id/profile_rmrTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/profile_rmrImage"
+                        app:layout_constraintTop_toTopOf="@+id/profile_rmrImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_rmrImage"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/profile_page_16"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/RMR"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/profile_rmrUint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/profile_rmrButton"
+                        app:layout_constraintTop_toTopOf="@+id/profile_rmrButton"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_rmrButton"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/profile_page_12"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/RMR"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/profile_rmrButton"
+                        android:layout_width="180dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/stats_buttons"
+                        android:gravity="start|center_vertical"
+                        android:padding="16dp"
+                        android:text="@string/zero2"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/RMR"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_ibwLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="2dp"
+                    android:background="@drawable/ibw"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/profile_lbwLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_tdeeLayout"
+                    app:layout_constraintBottom_toTopOf="@+id/profile_dwiLayout">
+
+                    <ImageView
+                        android:id="@+id/profile_ibwImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/libra"/>
+
+                    <ImageView
+                        android:id="@+id/profile_ibwArrow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/profile_ibwImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_ibwImage"
+                        android:src="@drawable/arrow_ibw"/>
+
+                    <TextView
+                        android:id="@+id/profile_ibwTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/profile_ibwImage"
+                        app:layout_constraintTop_toTopOf="@+id/profile_ibwImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_ibwImage"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/profile_page_17"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/IBW"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/profile_ibwUint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/profile_ibwButton"
+                        app:layout_constraintTop_toTopOf="@+id/profile_ibwButton"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_ibwButton"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/profile_page_18"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/IBW"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/profile_ibwButton"
+                        android:layout_width="180dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/stats_buttons"
+                        android:gravity="start|center_vertical"
+                        android:padding="16dp"
+                        android:text="@string/zero3"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/IBW"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_lbwLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="2dp"
+                    android:background="@drawable/lbw"
+                    app:layout_constraintStart_toEndOf="@+id/profile_ibwLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_rmrLayout"
+                    app:layout_constraintBottom_toTopOf="@+id/profile_bfpLayout">
+
+                    <ImageView
+                        android:id="@+id/profile_lbwImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/arm_muscle"/>
+
+                    <ImageView
+                        android:id="@+id/profile_lbwArrow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/profile_lbwImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_lbwImage"
+                        android:src="@drawable/arrow_lbw"/>
+
+                    <TextView
+                        android:id="@+id/profile_lbwTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/profile_lbwImage"
+                        app:layout_constraintTop_toTopOf="@+id/profile_lbwImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_lbwImage"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/profile_page_19"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/LBW"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/profile_lbwUint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/profile_lbwButton"
+                        app:layout_constraintTop_toTopOf="@+id/profile_lbwButton"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_lbwButton"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/profile_page_18"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/LBW"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/profile_lbwButton"
+                        android:layout_width="180dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/stats_buttons"
+                        android:gravity="start|center_vertical"
+                        android:padding="16dp"
+                        android:text="@string/zero4"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/LBW"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_dwiLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="2dp"
+                    android:background="@drawable/dpn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/profile_bfpLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_ibwLayout"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:id="@+id/profile_dwiImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/bottle_of_water"/>
+
+                    <ImageView
+                        android:id="@+id/profile_dwiArrow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/profile_dwiImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_dwiImage"
+                        android:src="@drawable/arrow_dwi"/>
+
+                    <TextView
+                        android:id="@+id/profile_dwiTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/profile_dwiImage"
+                        app:layout_constraintTop_toTopOf="@+id/profile_dwiImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_dwiImage"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/profile_page_20"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/DWI"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/profile_dwiUint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/profile_dwiButton"
+                        app:layout_constraintTop_toTopOf="@+id/profile_dwiButton"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_dwiButton"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/profile_page_21"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/DWI"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/profile_dwiButton"
+                        android:layout_width="180dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/stats_buttons"
+                        android:gravity="start|center_vertical"
+                        android:padding="16dp"
+                        android:text="@string/zero2"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/DWI"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_bfpLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="2dp"
+                    android:background="@drawable/bfp"
+                    app:layout_constraintStart_toEndOf="@+id/profile_dwiLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbwLayout"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:id="@+id/profile_bfpImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/humidity"/>
+
+                    <ImageView
+                        android:id="@+id/profile_bfpArrow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/profile_bfpImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_bfpImage"
+                        android:src="@drawable/arrow_bfp"/>
+
+                    <TextView
+                        android:id="@+id/profile_bfpTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/profile_bfpImage"
+                        app:layout_constraintTop_toTopOf="@+id/profile_bfpImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_bfpImage"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/profile_page_22"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/BFP"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/profile_bfpUint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/profile_bfpButton"
+                        app:layout_constraintTop_toTopOf="@+id/profile_bfpButton"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile_bfpButton"
+                        android:layout_marginStart="55dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/profile_page_23"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/BFP"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/profile_bfpButton"
+                        android:layout_width="180dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/stats_buttons"
+                        android:gravity="start|center_vertical"
+                        android:padding="16dp"
+                        android:text="@string/zero4"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/BFP"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/profile_macro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_4"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/profile_page_25"
+                android:fontFamily="@font/quicksand2"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_statsLayout"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

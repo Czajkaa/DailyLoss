@@ -2,9 +2,11 @@ package com.example.dailyloss
 
 import android.R.attr.data
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -13,7 +15,9 @@ class Main_Page : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
 
-        val user = findViewById<ImageButton>(R.id.mainPage_imageButton2)
+        val name = findViewById<TextView>(R.id.main_nameValue)
+        val subname = findViewById<TextView>(R.id.main_subnameValue)
+        val user = findViewById<ImageButton>(R.id.main_profileButton)
         val card1 = findViewById<ImageButton>(R.id.mainPage_card1_image)
         val card2 = findViewById<ImageButton>(R.id.mainPage_card2_image)
         val card3 = findViewById<ImageButton>(R.id.mainPage_card3_image)
@@ -25,7 +29,12 @@ class Main_Page : AppCompatActivity() {
         val card9 = findViewById<ImageButton>(R.id.mainPage_card9_image)
         val card10 = findViewById<ImageButton>(R.id.mainPage_card10_image)
 
+        val sharedPreferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+
         ChangeCupOfWater(card1, card2, card3, card4, card5, card6, card7, card8, card9, card10)
+
+        name.text = sharedPreferences.getString("name_value", "Name")
+        subname.text = sharedPreferences.getString("subname_value", "Subname")
 
         val profile = Intent(this, Profile::class.java)
         user.setOnClickListener {

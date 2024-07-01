@@ -16,6 +16,22 @@
     <color name="fats">#3F9CFF</color>
     <color name="water">#61CDFF</color>
 
+    <color name="BMR">#FF0000</color>
+    <color name="BMR_background">#FAE1E1</color>
+    <color name="BMI">#810DD3</color>
+    <color name="BMI_background">#F2E6FB</color>
+    <color name="TDEE">#48b5b0</color>
+    <color name="TDEE_background">#E3FCFA</color>
+    <color name="RMR">#1375c9</color>
+    <color name="RMR_background">#e7f2fa</color>
+    <color name="IBW">#fabd00</color>
+    <color name="IBW_background">#fff7e3</color>
+    <color name="LBW">#00af7f</color>
+    <color name="LBW_background">#ecfffa</color>
+    <color name="DWI">#00bde7</color>
+    <color name="DWI_background">#E4FBFF</color>
+    <color name="BFP">#e002db</color>
+    <color name="BFP_background">#fae4f9</color>
 
 
 

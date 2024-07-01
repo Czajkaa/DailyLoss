@@ -13,6 +13,30 @@
         android:theme="@style/Theme.DailyLoss"
         tools:targetApi="31">
         <activity
+            android:name=".Stats_BFP"
+            android:exported="false" />
+        <activity
+            android:name=".Stats_DWI"
+            android:exported="false" />
+        <activity
+            android:name=".Stats_LBW"
+            android:exported="false" />
+        <activity
+            android:name=".Stats_IBW"
+            android:exported="false" />
+        <activity
+            android:name=".Stats_RMR"
+            android:exported="false" />
+        <activity
+            android:name=".Stats_TDEE"
+            android:exported="false" />
+        <activity
+            android:name=".Stats_BMI"
+            android:exported="false" />
+        <activity
+            android:name=".Stats_BMR"
+            android:exported="false" />
+        <activity
             android:name=".Profile"
             android:exported="false" />
         <activity

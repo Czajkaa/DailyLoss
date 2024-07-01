@@ -21,7 +21,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/mainPage_linearLayout1"
+                android:id="@+id/main_titleLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -29,7 +29,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/mainPage_text1"
+                    android:id="@+id/main_titleWelcome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand1"
@@ -38,13 +38,13 @@
                     android:textSize="20sp" />
 
                 <LinearLayout
-                    android:id="@+id/mainPage_linearLayout2"
+                    android:id="@+id/main_nameLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/mainPage_text2"
+                        android:id="@+id/main_nameValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
@@ -54,7 +54,7 @@
                         android:textSize="25sp" />
 
                     <TextView
-                        android:id="@+id/mainPage_text3"
+                        android:id="@+id/main_subnameValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/quicksand2"
@@ -68,12 +68,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="@+id/mainPage_linearLayout1"
+                app:layout_constraintBottom_toBottomOf="@+id/main_titleLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
-                    android:id="@+id/mainPage_imageButton1"
+                    android:id="@+id/main_scoreButton"
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
@@ -84,7 +84,7 @@
                     tools:ignore="ContentDescription" />
 
                 <ImageButton
-                    android:id="@+id/mainPage_imageButton2"
+                    android:id="@+id/main_profileButton"
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
@@ -94,10 +94,8 @@
                     tools:ignore="ContentDescription" />
             </LinearLayout>
 
-
-
             <LinearLayout
-                android:id="@+id/mainPage_linearLayout3"
+                android:id="@+id/main_dataLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
@@ -105,7 +103,7 @@
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mainPage_linearLayout1">
+                app:layout_constraintTop_toBottomOf="@+id/main_titleLayout">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -114,7 +112,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/mainPage_text4"
+                        android:id="@+id/main_dataTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/main_page_4"
@@ -126,7 +124,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
-                        android:id="@+id/mainPage_button1"
+                        android:id="@+id/main_factsButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
@@ -544,7 +542,7 @@
                 android:padding="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mainPage_linearLayout3" >
+                app:layout_constraintTop_toBottomOf="@+id/main_dataLayout" >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">DailyLoss</string>
     <string name="zero">0</string>
+    <string name="zero2">0000</string>
+    <string name="zero3">00.0</string>
+    <string name="zero4">00</string>
 
     <string name="main_page_1">Welcome!</string>
-    <string name="main_page_2">Jakub</string>
-    <string name="main_page_3">Czajka</string>
+    <string name="main_page_2">Name</string>
+    <string name="main_page_3">Subname</string>
 
     <string name="main_page_4">Summary</string>
     <string name="main_page_5">Facts</string>
@@ -38,6 +41,37 @@
     <string name="profile_page_9">What is your Activity level</string>
     <string name="profile_page_10">What is your Goal</string>
 
+    <string name="profile_page_11">BMR</string>
+    <string name="profile_page_12">Calories/day</string>
+    <string name="profile_page_13">BMI</string>
+    <string name="profile_page_14">kg/m^2</string>
+    <string name="profile_page_15">TDEE</string>
+    <string name="profile_page_16">RMR</string>
+    <string name="profile_page_17">IBW</string>
+    <string name="profile_page_18">kg</string>
+    <string name="profile_page_19">LBW</string>
+    <string name="profile_page_20">DWI</string>
+    <string name="profile_page_21">ml/day</string>
+    <string name="profile_page_22">BFP</string>
+    <string name="profile_page_23">percent</string>
+    <string name="profile_page_24">Your Body Stats</string>
+    <string name="profile_page_25">Macronutrients</string>
+
+    <string name="bmr_page_1">Basal Metabloic Rate</string>
+
+    <string name="bmi_page_1">Body Mass Index</string>
+
+    <string name="tdee_page_1">Total Daily Energy Expenditure</string>
+
+    <string name="rmr_page_1">Resting Metabolic Rate</string>
+
+    <string name="ibw_page_1">Ideal Body Weight</string>
+
+    <string name="lbw_page_1">Lean Body Weight</string>
+
+    <string name="dwi_page_1">Daily Water Intake</string>
+
+    <string name="bfp_page_1">Body Fat Percentage</string>
 
 
     <string-array name="activity">
