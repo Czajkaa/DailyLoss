@@ -183,6 +183,28 @@ class Profile : AppCompatActivity() {
         })
         weightItem.setText(sharedPreferences.getString("weight_value", "0"))
 
+        // Settings 3 (lean body mass)
+
+        val LBMItem = findViewById<EditText>(R.id.profile_LBMValue)
+        LBMItem.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(s.toString() != "") {
+                    editor.putString("LBM_value", s.toString())
+                    editor.apply()
+                    updateStats()
+                } else {
+                    editor.putString("LBM_value", "0.0")
+                    editor.apply()
+                    updateStats()
+                }
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        LBMItem.setText((sharedPreferences.getString("LBM_value", "0.0"))!!.toDouble().toString())
+
         // Spinners
 
         val activityItem = findViewById<Spinner>(R.id.profile_activityValue)
@@ -298,16 +320,16 @@ class Profile : AppCompatActivity() {
             val bfpPage = Intent(this, Stats_BFP::class.java)
             startActivity(bfpPage)
         }
+        val macroButton = findViewById<Button>(R.id.profile_macro)
+        macroButton.setOnClickListener {
+            val macroPage = Intent(this, Stats_Macro::class.java)
+            startActivity(macroPage)
+        }
     }
 
     // Stats
     fun updateStats() {
         val sharedPreferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
-        val weight = (sharedPreferences.getString("weight_value", "0"))!!.toDouble()
-        val height = (sharedPreferences.getString("height_value", "0"))!!.toDouble()
-        val age = sharedPreferences.getInt("age_value", 0)
-        val gender = (sharedPreferences.getString("gender_value", "male")).toString()
-        val activity = sharedPreferences.getInt("activity_value", 0)
 
         val bmrButton = findViewById<Button>(R.id.profile_bmrButton)
         val bmiButton = findViewById<Button>(R.id.profile_bmiButton)
@@ -318,17 +340,15 @@ class Profile : AppCompatActivity() {
         val dwiButton = findViewById<Button>(R.id.profile_dwiButton)
         val bfpButton = findViewById<Button>(R.id.profile_bfpButton)
 
-        bmrButton.text = BMR(weight, height, age, gender).toString()
-        bmiButton.text = String.format("%.1f", BMI(weight, height))
-        tdeeButton.text = TDEE(BMR(weight, height, age, gender), activity).toString()
-        rmrButton.text = RMR(weight, height, age, gender).toString()
-        ibwButton.text = String.format("%.1f", IBW(height, gender))
-        lbwButton.text = String.format("%.1f", LBW(weight, height, gender))
-        dwiButton.text = DWI(weight, activity).toString()
-        bfpButton.text = BFP(weight, height, age, gender).toString()
+        bmrButton.text = chceck_stats(sharedPreferences, "BMR")
+        bmiButton.text = chceck_stats(sharedPreferences, "BMI")
+        tdeeButton.text = chceck_stats(sharedPreferences, "TDEE")
+        rmrButton.text = chceck_stats(sharedPreferences, "RMR")
+        ibwButton.text = chceck_stats(sharedPreferences, "IBW")
+        lbwButton.text = chceck_stats(sharedPreferences, "LBW")
+        dwiButton.text = chceck_stats(sharedPreferences, "DWI")
+        bfpButton.text = chceck_stats(sharedPreferences, "BFP")
     }
-
-
 
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {

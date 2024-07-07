@@ -4,6 +4,8 @@
     <string name="zero2">0000</string>
     <string name="zero3">00.0</string>
     <string name="zero4">00</string>
+    <string name="zero5">000</string>
+    <string name="zero6">00%</string>
 
     <string name="main_page_1">Welcome!</string>
     <string name="main_page_2">Name</string>
@@ -38,8 +40,8 @@
     <string name="profile_page_6">cm</string>
     <string name="profile_page_7">Weight</string>
     <string name="profile_page_8">kg</string>
-    <string name="profile_page_9">What is your Activity level</string>
-    <string name="profile_page_10">What is your Goal</string>
+    <string name="profile_page_9">What\'s your Activity level</string>
+    <string name="profile_page_10">What\'s your Goal</string>
 
     <string name="profile_page_11">BMR</string>
     <string name="profile_page_12">Calories/day</string>
@@ -56,22 +58,71 @@
     <string name="profile_page_23">percent</string>
     <string name="profile_page_24">Your Body Stats</string>
     <string name="profile_page_25">Macronutrients</string>
+    <string name="profile_page_26">If you know your lean body mass [%] (optional)</string>
+
+    <string name="stats_definition">Definition</string>
+    <string name="stats_formula">Different Formulas</string>
 
     <string name="bmr_page_1">Basal Metabloic Rate</string>
+    <string name="bmr_page_2">BMR stands for basal metabolic rate, which is the amount of energy that a person\'s body needs to carry out basic functions while at rest, such as breahting, circulating blood and maintaining body temperature.</string>
+    <string name="bmr_page_3">Harris-Benedict</string>
+    <string name="bmr_page_4">Katch-MacArdle</string>
+    <string name="bmr_page_5">Oxford Equation</string>
 
     <string name="bmi_page_1">Body Mass Index</string>
+    <string name="bmi_page_2">BMI stands for Body Mass Index, which is a measurement of body fat based on an individual\'s height and weight. It is calculated by dividing a person\'s weight in kilograms by the square of their height in meters</string>
+    <string name="bmi_page_3">Quetelet\'s Formula</string>
+    <string name="bmi_page_4">Values</string>
+    <string name="bmi_page_5">Classification</string>
+    <string name="bmi_page_6">Under Weight</string>
+    <string name="bmi_page_7">Normal Weight</string>
+    <string name="bmi_page_8">Over Weight</string>
+    <string name="bmi_page_9">Obese Class</string>
 
     <string name="tdee_page_1">Total Daily Energy Expenditure</string>
+    <string name="tdee_page_2">TDEE stands for Total Daliy Energy Expenditure. It is the total number of calories that an individual burns in a day, taking into account their basal metabloic rate (BMR), physical activity level and the thermic effect of food (TEF).</string>
+    <string name="tdee_page_3">BMR</string>
+    <string name="tdee_page_4">RMR</string>
 
     <string name="rmr_page_1">Resting Metabolic Rate</string>
+    <string name="rmr_page_2">BMR stands for basal metabolic rate, which is the amount of energy that a person\'s body needs to carry out basic functions while at rest, such as breahting, circulating blood and maintaining body temperature, similar to BMR.</string>
+    <string name="rmr_page_3">Mifflin-St. Jeor</string>
+    <string name="rmr_page_4">Cunningham</string>
 
     <string name="ibw_page_1">Ideal Body Weight</string>
+    <string name="ibw_page_2">Ideal Body Weight (IBW) is a calculated estimate of what a person\'s weight should be based on their height, age, and gender. It\'s used as a general guidline for evaluating a person\'s health status and helpful in determining appropriate loss or weight gain goals.</string>
+    <string name="ibw_page_3">Hamwi Method</string>
+    <string name="ibw_page_4">Devine Formula</string>
 
     <string name="lbw_page_1">Lean Body Weight</string>
+    <string name="lbw_page_2">Lean Body Weight (LBW) is the weight of a person\'s body that is composed of non-fat tissues, including muscles, bones, organs and connective tissu. LBm is an important component of body composition analysis, as it provides insight into a person\'s overall health and fitnes level.</string>
+    <string name="lbw_page_3">Boer Equation</string>
+    <string name="lbw_page_4">James Formula</string>
+    <string name="lbw_page_5">Hume Equation</string>
+    <string name="lbw_page_6">Body Fat Percentage</string>
 
     <string name="dwi_page_1">Daily Water Intake</string>
+    <string name="dwi_page_2">Daily Water Intake (DWI) refers to the amount of water an individual consumes each day to maintain bodily functions such as hydration, nutrient transport, digestion, temperature regulation, and joint lubrication. The required intake varies based on age, gender, activity level, climate, diet, health status, and whether a person is pregnant or breastfeeding.</string>
+    <string name="dwi_page_3">Weight Formula</string>
+    <string name="dwi_page_4">Calories Formula</string>
+    <string name="dwi_page_5">IOM Formula</string>
+    <string name="dwi_page_6">Activity Formula</string>
 
     <string name="bfp_page_1">Body Fat Percentage</string>
+    <string name="bfp_page_2">Body Fat Percentage (BFP) is the proportion of a person\'s total body weight that is made up of fat. It\'s an important indicator of overall health and fitnes, as having too much body fat has been linked to an incresed risk of chronic diseases such as herst disease, diabetes and some type of cancer</string>
+    <string name="bfp_page_3">Deurenberg Formula</string>
+    <string name="bfp_page_4">LBW</string>
+
+    <string name="macro_page_1">Daily Intake of Calories</string>
+    <string name="macro_page_2">Diet Type</string>
+    <string name="macro_page_3">Standard</string>
+    <string name="macro_page_4">Balanced</string>
+    <string name="macro_page_5">Low Fat</string>
+    <string name="macro_page_6">High in protein</string>
+    <string name="macro_page_7">Custom</string>
+    <string name="macro_page_8">Macronutrients Distribution</string>
+    <string name="macro_page_9">kcal</string>
+
 
 
     <string-array name="activity">

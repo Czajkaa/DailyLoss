@@ -11,9 +11,9 @@
     <color name="button_1">#FF3399FF</color>
 
     <color name="progressbar_1">#32D32C</color>
-    <color name="protein">#EA7550</color>
-    <color name="carbs">#A9B313</color>
-    <color name="fats">#3F9CFF</color>
+    <color name="protein">#ff8b88</color>
+    <color name="carbs">#7580ff</color>
+    <color name="fats">#ffd36d</color>
     <color name="water">#61CDFF</color>
 
     <color name="BMR">#FF0000</color>
@@ -33,6 +33,10 @@
     <color name="BFP">#e002db</color>
     <color name="BFP_background">#fae4f9</color>
 
+    <color name="BMI_1">#26bcff</color>
+    <color name="BMI_2">#1ac9ac</color>
+    <color name="BMI_3">#fdc83c</color>
+    <color name="BMI_4">#f35756</color>
 
 
 </resources>

@@ -352,6 +352,61 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profile_LBMLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_text"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_settingsLayout2">
+
+                <TextView
+                    android:id="@+id/profile_LBMTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/profile_page_26"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <EditText
+                    android:id="@+id/profile_LBMValue"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/zero"
+                    android:inputType="numberDecimal"
+                    android:background="@drawable/input_text"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:layout_marginVertical="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_LBMTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/profile_LBMUint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand2"
+                    android:text="@string/profile_page_23"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/profile_LBMValue"
+                    app:layout_constraintTop_toTopOf="@+id/profile_LBMValue"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_LBMValue"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/profile_activityLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -361,7 +416,7 @@
                 android:background="@drawable/input_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_settingsLayout2">
+                app:layout_constraintTop_toBottomOf="@+id/profile_LBMLayout">
 
                 <TextView
                     android:id="@+id/profile_activityTitle"
@@ -1047,7 +1102,7 @@
                         app:layout_constraintStart_toStartOf="@+id/profile_bfpButton"
                         app:layout_constraintTop_toTopOf="@+id/profile_bfpButton"
                         app:layout_constraintBottom_toBottomOf="@+id/profile_bfpButton"
-                        android:layout_marginStart="55dp"
+                        android:layout_marginStart="75dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/profile_page_23"
                         android:fontFamily="@font/quicksand2"

@@ -18,6 +18,10 @@ class Main_Page : AppCompatActivity() {
         val name = findViewById<TextView>(R.id.main_nameValue)
         val subname = findViewById<TextView>(R.id.main_subnameValue)
         val user = findViewById<ImageButton>(R.id.main_profileButton)
+        val DIof = findViewById<TextView>(R.id.mainPage_text9)
+        val protein = findViewById<TextView>(R.id.mainPage_text13)
+        val carbs = findViewById<TextView>(R.id.mainPage_text16)
+        val fats = findViewById<TextView>(R.id.mainPage_text19)
         val card1 = findViewById<ImageButton>(R.id.mainPage_card1_image)
         val card2 = findViewById<ImageButton>(R.id.mainPage_card2_image)
         val card3 = findViewById<ImageButton>(R.id.mainPage_card3_image)
@@ -35,6 +39,10 @@ class Main_Page : AppCompatActivity() {
 
         name.text = sharedPreferences.getString("name_value", "Name")
         subname.text = sharedPreferences.getString("subname_value", "Subname")
+        DIof.text = (sharedPreferences.getInt("DIoF_value", 0)).toString()
+        protein.text = (sharedPreferences.getInt("protein_g", 0)).toString()
+        carbs.text = (sharedPreferences.getInt("carbs_g", 0)).toString()
+        fats.text = (sharedPreferences.getInt("fats_g", 0)).toString()
 
         val profile = Intent(this, Profile::class.java)
         user.setOnClickListener {
