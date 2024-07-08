@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Daily_Meal">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:paddingBottom="25dp"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="1dp"
+                android:orientation="vertical"
+                tools:context=".MainActivity">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/calendar_navigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/prevWeekButton"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/previous"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/monthYearText"
+                        app:layout_constraintTop_toTopOf="@+id/monthYearText"
+                        app:layout_constraintBottom_toBottomOf="@+id/monthYearText" />
+
+                    <TextView
+                        android:id="@+id/monthYearText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="July 2024"
+                        android:gravity="center"
+                        android:fontFamily="@font/quicksand2"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:padding="10dp"
+                        app:layout_constraintStart_toEndOf="@+id/prevWeekButton"
+                        app:layout_constraintEnd_toStartOf="@+id/nextWeekButton"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                        <ImageButton
+                        android:id="@+id/nextWeekButton"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next"
+                        app:layout_constraintStart_toEndOf="@+id/monthYearText"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/monthYearText"
+                        app:layout_constraintBottom_toBottomOf="@+id/monthYearText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/calendar_navigation"
+                    app:layout_constraintBottom_toTopOf="@+id/daily_meal_macroLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/daily_meal_macroLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:paddingVertical="5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/daily_meal_timeLayout">
+
+                    <TextView
+                        android:id="@+id/daily_meal_macroTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/daily_meal_page_1"
+                        android:fontFamily="@font/quicksand2"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/daily_meal_proteinLayout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/daily_meal_macroValue"/>
+
+                    <TextView
+                        android:id="@+id/daily_meal_macroValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/zero"
+                        android:fontFamily="@font/quicksand2"
+                        android:textSize="17sp"
+                        android:textColor="@color/meal_kcal"
+                        app:layout_constraintTop_toTopOf="@+id/daily_meal_macroTitle"
+                        app:layout_constraintBottom_toBottomOf="@+id/daily_meal_macroTitle"
+                        app:layout_constraintStart_toEndOf="@+id/daily_meal_macroTitle"
+                        app:layout_constraintEnd_toStartOf="@+id/daily_meal_macroUint"/>
+
+                    <TextView
+                        android:id="@+id/daily_meal_macroUint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/daily_meal_page_2"
+                        android:fontFamily="@font/quicksand2"
+                        android:textSize="17sp"
+                        android:textColor="@color/meal_kcal"
+                        app:layout_constraintTop_toTopOf="@+id/daily_meal_macroValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/daily_meal_macroValue"
+                        app:layout_constraintStart_toEndOf="@+id/daily_meal_macroValue" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/daily_meal_proteinLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/protein"
+                        android:padding="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/daily_meal_macroTitle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/daily_meal_carbsLayout">
+
+                        <TextView
+                            android:id="@+id/daily_meal_proteinTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_page_10"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_proteinValue"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/daily_meal_proteinValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0/0.0 g"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="16sp"
+                            android:textColor="@color/protein"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_proteinTitle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:ignore="HardcodedText" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/daily_meal_carbsLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/carbs"
+                        android:padding="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/daily_meal_macroTitle"
+                        app:layout_constraintBottom_toBottomOf="@+id/daily_meal_proteinLayout"
+                        app:layout_constraintStart_toEndOf="@+id/daily_meal_proteinLayout"
+                        app:layout_constraintEnd_toStartOf="@+id/daily_meal_fatsLayout">
+
+                        <TextView
+                            android:id="@+id/daily_meal_carbsTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_page_11"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_carbsValue"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/daily_meal_carbsValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0/0.0 g"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="16sp"
+                            android:textColor="@color/carbs"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_carbsTitle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:ignore="HardcodedText" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/daily_meal_fatsLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/fats"
+                        android:padding="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/daily_meal_macroTitle"
+                        app:layout_constraintBottom_toBottomOf="@+id/daily_meal_proteinLayout"
+                        app:layout_constraintStart_toEndOf="@+id/daily_meal_carbsLayout"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <TextView
+                            android:id="@+id/daily_meal_fatsTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_page_12"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_fatsValue"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/daily_meal_fatsValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0/0.0 g"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="16sp"
+                            android:textColor="@color/fats"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_fatsTitle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:ignore="HardcodedText" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/daily_meal_timeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:padding="1dp"
+                    app:layout_constraintTop_toBottomOf="@+id/daily_meal_macroLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/daily_meal_breakfastLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/breakfast"
+                        android:paddingVertical="10dp"
+                        android:paddingStart="15dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/daily_meal_lunchLayout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <TextView
+                            android:id="@+id/daily_meal_breakfastTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/daily_meal_page_3"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_breakfastMacro"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/daily_meal_breakfastKcal"/>
+
+                        <TextView
+                            android:id="@+id/daily_meal_breakfastKcal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="0.0 kcal"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="15sp"
+                            android:textColor="@color/breakfast"
+                            tools:ignore="HardcodedText"
+                            app:layout_constraintTop_toTopOf="@+id/daily_meal_breakfastTitle"
+                            app:layout_constraintBottom_toBottomOf="@+id/daily_meal_breakfastTitle"
+                            app:layout_constraintStart_toEndOf="@+id/daily_meal_breakfastTitle" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/daily_meal_breakfastMacro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_breakfastTitle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                android:id="@+id/daily_meal_breakfastProteinTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_page_10"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_breakfastProteinUint" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_breakfastProteinUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/breakfast"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_breakfastProteinTitle"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_breakfastCarbsTitle" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_breakfastCarbsTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:text="@string/main_page_11"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_breakfastProteinUint"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_breakfastCarbsUint" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_breakfastCarbsUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/breakfast"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_breakfastCarbsTitle"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_breakfastFatsTitle" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_breakfastFatsTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:text="@string/main_page_12"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_breakfastCarbsUint"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_breakfastFatsUint"/>
+
+                            <TextView
+                                android:id="@+id/daily_meal_breakfastFatsUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/breakfast"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_breakfastFatsTitle" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <ImageButton
+                            android:id="@+id/daily_meal_breakfastNextButton"
+                            android:layout_width="35dp"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/transparent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/next"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <Button
+                            android:id="@+id/daily_meal_breakfastButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/stats_buttons"
+                            android:paddingVertical="30dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/daily_meal_lunchLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/lunch"
+                        android:layout_marginTop="10dp"
+                        android:paddingVertical="10dp"
+                        android:paddingStart="15dp"
+                        app:layout_constraintTop_toBottomOf="@+id/daily_meal_breakfastLayout"
+                        app:layout_constraintBottom_toTopOf="@+id/daily_meal_snackLayout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <TextView
+                            android:id="@+id/daily_meal_lunchTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/daily_meal_page_4"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_lunchMacro"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/daily_meal_lunchKcal"/>
+
+                        <TextView
+                            android:id="@+id/daily_meal_lunchKcal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="0.0 kcal"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="15sp"
+                            android:textColor="@color/lunch"
+                            tools:ignore="HardcodedText"
+                            app:layout_constraintTop_toTopOf="@+id/daily_meal_lunchTitle"
+                            app:layout_constraintBottom_toBottomOf="@+id/daily_meal_lunchTitle"
+                            app:layout_constraintStart_toEndOf="@+id/daily_meal_lunchTitle" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/daily_meal_lunchMacro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_lunchTitle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                android:id="@+id/daily_meal_lunchProteinTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_page_10"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_lunchProteinUint" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_lunchProteinUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/lunch"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_lunchProteinTitle"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_lunchCarbsTitle" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_lunchCarbsTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:text="@string/main_page_11"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_lunchProteinUint"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_lunchCarbsUint" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_lunchCarbsUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/lunch"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_lunchCarbsTitle"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_lunchFatsTitle" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_lunchFatsTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:text="@string/main_page_12"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_lunchCarbsUint"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_lunchFatsUint"/>
+
+                            <TextView
+                                android:id="@+id/daily_meal_lunchFatsUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/lunch"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_lunchFatsTitle" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <ImageButton
+                            android:id="@+id/daily_meal_lunchNextButton"
+                            android:layout_width="35dp"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/transparent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/next"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <Button
+                            android:id="@+id/daily_meal_lunchButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/stats_buttons"
+                            android:paddingVertical="30dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/daily_meal_snackLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/snack"
+                        android:layout_marginTop="10dp"
+                        android:paddingVertical="10dp"
+                        android:paddingStart="15dp"
+                        app:layout_constraintTop_toBottomOf="@+id/daily_meal_lunchLayout"
+                        app:layout_constraintBottom_toTopOf="@+id/daily_meal_dinnerLayout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <TextView
+                            android:id="@+id/daily_meal_snackTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/daily_meal_page_4"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_snackMacro"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/daily_meal_snackKcal"/>
+
+                        <TextView
+                            android:id="@+id/daily_meal_snackKcal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="0.0 kcal"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="15sp"
+                            android:textColor="@color/snack"
+                            tools:ignore="HardcodedText"
+                            app:layout_constraintTop_toTopOf="@+id/daily_meal_snackTitle"
+                            app:layout_constraintBottom_toBottomOf="@+id/daily_meal_snackTitle"
+                            app:layout_constraintStart_toEndOf="@+id/daily_meal_snackTitle" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/daily_meal_snackMacro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_snackTitle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                android:id="@+id/daily_meal_snackProteinTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_page_10"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_snackProteinUint" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_snackProteinUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/snack"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_snackProteinTitle"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_snackCarbsTitle" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_snackCarbsTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:text="@string/main_page_11"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_snackProteinUint"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_snackCarbsUint" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_snackCarbsUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/snack"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_snackCarbsTitle"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_snackFatsTitle" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_snackFatsTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:text="@string/main_page_12"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_snackCarbsUint"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_snackFatsUint"/>
+
+                            <TextView
+                                android:id="@+id/daily_meal_snackFatsUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/snack"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_snackFatsTitle" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <ImageButton
+                            android:id="@+id/daily_meal_snackNextButton"
+                            android:layout_width="35dp"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/transparent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/next"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <Button
+                            android:id="@+id/daily_meal_snackButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/stats_buttons"
+                            android:paddingVertical="30dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/daily_meal_dinnerLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/dinner"
+                        android:layout_marginTop="10dp"
+                        android:paddingVertical="10dp"
+                        android:paddingStart="15dp"
+                        app:layout_constraintTop_toBottomOf="@+id/daily_meal_snackLayout"
+                        app:layout_constraintBottom_toTopOf="@+id/daily_meal_add_mealButton"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <TextView
+                            android:id="@+id/daily_meal_dinnerTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/daily_meal_page_6"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_dinnerMacro"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/daily_meal_dinnerKcal"/>
+
+                        <TextView
+                            android:id="@+id/daily_meal_dinnerKcal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="0.0 kcal"
+                            android:fontFamily="@font/quicksand2"
+                            android:textSize="15sp"
+                            android:textColor="@color/dinner"
+                            tools:ignore="HardcodedText"
+                            app:layout_constraintTop_toTopOf="@+id/daily_meal_dinnerTitle"
+                            app:layout_constraintBottom_toBottomOf="@+id/daily_meal_dinnerTitle"
+                            app:layout_constraintStart_toEndOf="@+id/daily_meal_dinnerTitle" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/daily_meal_dinnerMacro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_dinnerTitle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                android:id="@+id/daily_meal_dinnerProteinTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_page_10"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_dinnerProteinUint" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_dinnerProteinUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/dinner"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_dinnerProteinTitle"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_dinnerCarbsTitle" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_dinnerCarbsTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:text="@string/main_page_11"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_dinnerProteinUint"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_dinnerCarbsUint" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_dinnerCarbsUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/dinner"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_dinnerCarbsTitle"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_dinnerFatsTitle" />
+
+                            <TextView
+                                android:id="@+id/daily_meal_dinnerFatsTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:text="@string/main_page_12"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_dinnerCarbsUint"
+                                app:layout_constraintEnd_toStartOf="@+id/daily_meal_dinnerFatsUint"/>
+
+                            <TextView
+                                android:id="@+id/daily_meal_dinnerFatsUint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="0.0 g"
+                                android:fontFamily="@font/quicksand2"
+                                android:textSize="13sp"
+                                android:textColor="@color/dinner"
+                                tools:ignore="HardcodedText"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/daily_meal_dinnerFatsTitle" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <ImageButton
+                            android:id="@+id/daily_meal_dinnerNextButton"
+                            android:layout_width="35dp"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/transparent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/next"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <Button
+                            android:id="@+id/daily_meal_dinnerButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/stats_buttons"
+                            android:paddingVertical="30dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <Button
+                        android:id="@+id/daily_meal_add_mealButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_4"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="@string/daily_meal_page_7"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintTop_toBottomOf="@+id/daily_meal_dinnerLayout"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -17,7 +18,7 @@ class Main_Page : AppCompatActivity() {
 
         val name = findViewById<TextView>(R.id.main_nameValue)
         val subname = findViewById<TextView>(R.id.main_subnameValue)
-        val user = findViewById<ImageButton>(R.id.main_profileButton)
+
         val DIof = findViewById<TextView>(R.id.mainPage_text9)
         val protein = findViewById<TextView>(R.id.mainPage_text13)
         val carbs = findViewById<TextView>(R.id.mainPage_text16)
@@ -44,9 +45,15 @@ class Main_Page : AppCompatActivity() {
         carbs.text = (sharedPreferences.getInt("carbs_g", 0)).toString()
         fats.text = (sharedPreferences.getInt("fats_g", 0)).toString()
 
+        val user = findViewById<ImageButton>(R.id.main_profileButton)
         val profile = Intent(this, Profile::class.java)
         user.setOnClickListener {
             startActivity(profile)
+        }
+        val add_meal = findViewById<Button>(R.id.mainPage_imageButton3)
+        val daily_meal = Intent(this, Daily_Meal::class.java)
+        add_meal.setOnClickListener {
+            startActivity(daily_meal)
         }
     }
 

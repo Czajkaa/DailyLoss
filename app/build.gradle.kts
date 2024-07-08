@@ -43,6 +43,8 @@ android {
 dependencies {
     implementation ("com.github.Gruzer:simple-gauge-android:0.3.1")
     implementation ("com.github.owl-93.Determinate-Progress-View:release:v1.4.4")
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+    implementation ("com.google.android.material:material:1.12.0")
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")

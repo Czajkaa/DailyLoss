@@ -123,6 +123,13 @@
     <string name="macro_page_8">Macronutrients Distribution</string>
     <string name="macro_page_9">kcal</string>
 
+    <string name="daily_meal_page_1">Consumed today</string>
+    <string name="daily_meal_page_2">kcal</string>
+    <string name="daily_meal_page_3">Breakfast</string>
+    <string name="daily_meal_page_4">Lunch</string>
+    <string name="daily_meal_page_5">Snack</string>
+    <string name="daily_meal_page_6">Dinner</string>
+    <string name="daily_meal_page_7">Add Meal</string>
 
 
     <string-array name="activity">
