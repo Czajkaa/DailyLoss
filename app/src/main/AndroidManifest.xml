@@ -13,6 +13,21 @@
         android:theme="@style/Theme.DailyLoss"
         tools:targetApi="31">
         <activity
+            android:name=".Food_Lunch"
+            android:exported="false" />
+        <activity
+            android:name=".Food_Dinner"
+            android:exported="false" />
+        <activity
+            android:name=".Food_Snack"
+            android:exported="false" />
+        <activity
+            android:name=".food_Lunch"
+            android:exported="false" />
+        <activity
+            android:name=".Food_Breakfast"
+            android:exported="false" />
+        <activity
             android:name=".Daily_Meal"
             android:exported="false" />
         <activity

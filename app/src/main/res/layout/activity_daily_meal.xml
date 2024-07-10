@@ -163,7 +163,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/main_page_10"
                             android:fontFamily="@font/quicksand2"
-                            android:textSize="15sp"
+                            android:textSize="12sp"
                             android:textColor="@color/black"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toTopOf="@+id/daily_meal_proteinValue"
@@ -176,13 +176,30 @@
                             android:layout_height="wrap_content"
                             android:text="0.0/0.0 g"
                             android:fontFamily="@font/quicksand2"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textColor="@color/protein"
                             app:layout_constraintTop_toBottomOf="@+id/daily_meal_proteinTitle"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_protein_progressBar"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             tools:ignore="HardcodedText" />
+
+                        <ProgressBar
+                            android:id="@+id/daily_meal_protein_progressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_marginHorizontal="3dp"
+                            android:layout_marginTop="10dp"
+                            android:indeterminate="false"
+                            android:max="100"
+                            android:progress="55"
+                            android:progressDrawable="@drawable/macro_protein_progressbar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_proteinValue"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/daily_meal_proteinValue"
+                            app:layout_constraintEnd_toEndOf="@+id/daily_meal_proteinValue"/>
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -206,7 +223,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/main_page_11"
                             android:fontFamily="@font/quicksand2"
-                            android:textSize="15sp"
+                            android:textSize="12sp"
                             android:textColor="@color/black"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toTopOf="@+id/daily_meal_carbsValue"
@@ -219,13 +236,30 @@
                             android:layout_height="wrap_content"
                             android:text="0.0/0.0 g"
                             android:fontFamily="@font/quicksand2"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textColor="@color/carbs"
                             app:layout_constraintTop_toBottomOf="@+id/daily_meal_carbsTitle"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_carbs_progressBar"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             tools:ignore="HardcodedText" />
+
+                        <ProgressBar
+                            android:id="@+id/daily_meal_carbs_progressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_marginHorizontal="3dp"
+                            android:layout_marginTop="10dp"
+                            android:indeterminate="false"
+                            android:max="100"
+                            android:progress="55"
+                            android:progressDrawable="@drawable/macro_carbs_progressbar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_carbsValue"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/daily_meal_carbsValue"
+                            app:layout_constraintEnd_toEndOf="@+id/daily_meal_carbsValue"/>
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -248,7 +282,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/main_page_12"
                             android:fontFamily="@font/quicksand2"
-                            android:textSize="15sp"
+                            android:textSize="12sp"
                             android:textColor="@color/black"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toTopOf="@+id/daily_meal_fatsValue"
@@ -261,13 +295,30 @@
                             android:layout_height="wrap_content"
                             android:text="0.0/0.0 g"
                             android:fontFamily="@font/quicksand2"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:textColor="@color/fats"
                             app:layout_constraintTop_toBottomOf="@+id/daily_meal_fatsTitle"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/daily_meal_fats_progressBar"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             tools:ignore="HardcodedText" />
+
+                        <ProgressBar
+                            android:id="@+id/daily_meal_fats_progressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_marginHorizontal="3dp"
+                            android:layout_marginTop="10dp"
+                            android:indeterminate="false"
+                            android:max="100"
+                            android:progress="55"
+                            android:progressDrawable="@drawable/macro_fats_progressbar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            app:layout_constraintTop_toBottomOf="@+id/daily_meal_fatsValue"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/daily_meal_fatsValue"
+                            app:layout_constraintEnd_toEndOf="@+id/daily_meal_fatsValue"/>
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -630,7 +681,7 @@
                             android:id="@+id/daily_meal_snackTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/daily_meal_page_4"
+                            android:text="@string/daily_meal_page_5"
                             android:fontFamily="@font/quicksand2"
                             android:textSize="20sp"
                             android:textColor="@color/black"

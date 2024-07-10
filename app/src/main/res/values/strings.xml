@@ -2,7 +2,7 @@
     <string name="app_name">DailyLoss</string>
     <string name="zero">0</string>
     <string name="zero2">0000</string>
-    <string name="zero3">00.0</string>
+    <string name="zero3">0.0</string>
     <string name="zero4">00</string>
     <string name="zero5">000</string>
     <string name="zero6">00%</string>
@@ -130,6 +130,10 @@
     <string name="daily_meal_page_5">Snack</string>
     <string name="daily_meal_page_6">Dinner</string>
     <string name="daily_meal_page_7">Add Meal</string>
+    <string name="daily_meal_page_8">Total Breakfast</string>
+    <string name="daily_meal_page_9">Total Lunch</string>
+    <string name="daily_meal_page_10">Total Snack</string>
+    <string name="daily_meal_page_11">Total Dinner</string>
 
 
     <string-array name="activity">
