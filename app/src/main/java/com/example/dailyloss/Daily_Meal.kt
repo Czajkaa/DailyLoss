@@ -102,10 +102,10 @@ class Daily_Meal : AppCompatActivity() {
 
     private fun getDaysOfWeek(): List<Day> {
         val days = mutableListOf<Day>()
-        val dayNames = arrayOf("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+        val dayNames = arrayOf("Thu", "Mon", "Fri", "Tue", "Sat", "Wed", "Sun")
 
         val startOfWeek = calendar.clone() as Calendar
-        startOfWeek.set(Calendar.DAY_OF_WEEK, calendar.firstDayOfWeek)
+        startOfWeek.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
 
         for (i in 0..6) {
             val dayOfWeek = (startOfWeek.get(Calendar.DAY_OF_WEEK) + i - 1) % 7

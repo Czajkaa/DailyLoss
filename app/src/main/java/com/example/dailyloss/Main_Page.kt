@@ -62,9 +62,6 @@ class Main_Page : AppCompatActivity() {
         name.text = sharedPreferences.getString("name_value", "Name")
         subname.text = sharedPreferences.getString("subname_value", "Subname")
         DIof.text = (sharedPreferences.getInt("DIoF_value", 0)).toString()
-        protein.text = (sharedPreferences.getInt("protein_g", 0)).toString()
-        carbs.text = (sharedPreferences.getInt("carbs_g", 0)).toString()
-        fats.text = (sharedPreferences.getInt("fats_g", 0)).toString()
 
         val user = findViewById<ImageButton>(R.id.main_profileButton)
         val profile = Intent(this, Profile::class.java)
