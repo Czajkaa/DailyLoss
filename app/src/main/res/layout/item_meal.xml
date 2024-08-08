@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/back_theme"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="10dp">
+
+
+    <TextView
+        android:id="@+id/item_meal_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand1"
+        android:text="Name"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/item_meal_grams"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/item_meal_grams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="000 g"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/item_meal_calories"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_meal_title" />
+
+    <TextView
+        android:id="@+id/item_meal_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/quicksand1"
+        android:text="@string/item_meal_1"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/item_meal_caloriesValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_meal_grams" />
+
+    <TextView
+        android:id="@+id/item_meal_caloriesValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/quicksand1"
+        android:text="000.0 g"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_meal_calories"
+        app:layout_constraintStart_toStartOf="@+id/item_meal_calories"
+        app:layout_constraintTop_toBottomOf="@+id/item_meal_calories" />
+
+    <TextView
+        android:id="@+id/item_meal_protein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/quicksand1"
+        android:text="@string/main_page_10"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/item_meal_proteinValue"
+        app:layout_constraintEnd_toStartOf="@+id/item_meal_carbs"
+        app:layout_constraintStart_toEndOf="@+id/item_meal_calories"
+        app:layout_constraintTop_toBottomOf="@+id/item_meal_grams" />
+
+    <TextView
+        android:id="@+id/item_meal_proteinValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/quicksand1"
+        android:text="000.0 g"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_meal_protein"
+        app:layout_constraintStart_toStartOf="@+id/item_meal_protein"
+        app:layout_constraintTop_toBottomOf="@+id/item_meal_protein" />
+
+    <TextView
+        android:id="@+id/item_meal_carbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/quicksand1"
+        android:text="@string/main_page_11"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/item_meal_carbsValue"
+        app:layout_constraintEnd_toStartOf="@+id/item_meal_fats"
+        app:layout_constraintStart_toEndOf="@+id/item_meal_protein"
+        app:layout_constraintTop_toBottomOf="@+id/item_meal_grams" />
+
+    <TextView
+        android:id="@+id/item_meal_carbsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/quicksand1"
+        android:text="000.0 g"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_meal_carbs"
+        app:layout_constraintStart_toStartOf="@+id/item_meal_carbs"
+        app:layout_constraintTop_toBottomOf="@+id/item_meal_carbs" />
+
+    <TextView
+        android:id="@+id/item_meal_fats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/quicksand1"
+        android:text="@string/main_page_12"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/item_meal_fatsValue"
+        app:layout_constraintEnd_toStartOf="@+id/item_meal_delete"
+        app:layout_constraintStart_toEndOf="@+id/item_meal_carbs"
+        app:layout_constraintTop_toBottomOf="@+id/item_meal_grams" />
+
+    <TextView
+        android:id="@+id/item_meal_fatsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/quicksand1"
+        android:text="000.0 g"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_meal_fats"
+        app:layout_constraintStart_toStartOf="@+id/item_meal_fats"
+        app:layout_constraintTop_toBottomOf="@+id/item_meal_fats" />
+
+    <ImageButton
+        android:id="@+id/item_meal_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/stats_buttons"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

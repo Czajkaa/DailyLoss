@@ -135,6 +135,8 @@
     <string name="daily_meal_page_10">Total Snack</string>
     <string name="daily_meal_page_11">Total Dinner</string>
 
+    <string name="item_meal_1">Calories</string>
+    <string name="item_meal_2">Add Meal</string>
 
     <string-array name="activity">
         <item>Sedentary Life Style</item>
