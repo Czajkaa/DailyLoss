@@ -43,7 +43,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/dinner_macroTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintBottom_toTopOf="@+id/dinner_macro_button">
 
                 <TextView
                     android:id="@+id/dinner_macroLayout_title"
@@ -263,6 +263,35 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/dinner_macro_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_dinner"
+                android:fontFamily="@font/quicksand2"
+                android:text="@string/item_meal_2"
+                android:textColor="@color/background"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toTopOf="@+id/dinner_macro_recyclerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dinner_macroLayout" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dinner_macro_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dinner_macro_button" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

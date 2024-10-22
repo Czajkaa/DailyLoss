@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="10dp"
+    android:orientation="horizontal"
+    tools:context=".Daily_Meal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_product_titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/add_product_scrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/add_product_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand2"
+            android:text="@string/add_product_page_1"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/add_product_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:fontFamily="@font/quicksand1"
+            android:textAllCaps="false"
+            android:text="@string/add_product_page_2"
+            android:textColor="@drawable/button_5"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/add_product_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_product_titleLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Food Name -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_product_option1Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/add_product_option3Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/add_product_option2Layout">
+
+                <TextView
+                    android:id="@+id/add_product_nameTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@string/add_product_page_3"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/add_product_nameValue"/>
+
+                <EditText
+                    android:id="@+id/add_product_nameValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="2dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:paddingHorizontal="10dp"
+                    android:inputType="text"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/input_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_product_nameTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:hint="@string/main_page_2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Food Image -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_product_option2Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="@+id/add_product_option1Layout"
+                app:layout_constraintBottom_toBottomOf="@+id/add_product_option1Layout"
+                app:layout_constraintStart_toEndOf="@+id/add_product_option1Layout"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/add_product_imageTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@string/add_product_page_4"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/add_product_imageLayout"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/add_product_imageLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_product_imageTitle"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:visibility="gone"
+                        android:id="@+id/add_product_imageView"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerRadius8"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/add_product_imageValue"/>
+
+                    <Button
+                        android:id="@+id/add_product_imageValue"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginVertical="2dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@drawable/button_4"
+                        android:gravity="center"
+                        android:text="@string/add_product_page_5"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textAllCaps="false"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/add_product_imageView"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Brand -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_product_option3Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/add_product_option1Layout"
+                app:layout_constraintBottom_toTopOf="@+id/add_product_option5Layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/add_product_option2Layout">
+
+                <TextView
+                    android:id="@+id/add_product_brandTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@string/add_product_page_6"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/add_product_brandValue"
+                    />
+
+                <EditText
+                    android:id="@+id/add_product_brandValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="2dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:paddingHorizontal="10dp"
+                    android:inputType="text"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/input_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_product_brandTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:hint="@string/add_product_page_12" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Type -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_product_option4Layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/add_product_option2Layout"
+                app:layout_constraintBottom_toTopOf="@+id/add_product_option5Layout"
+                app:layout_constraintStart_toEndOf="@+id/add_product_option3Layout"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/add_product_typeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@string/add_product_page_7"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/add_product_typeValue"
+                    />
+
+                <Spinner
+                    android:id="@+id/add_product_typeValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/input_text"
+                    android:layout_below="@+id/add_product_typeTitle"
+                    android:layout_marginVertical="2dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_product_typeTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Additional Type Option -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="gone"
+                android:id="@+id/add_product_option5Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/add_product_option4Layout"
+                app:layout_constraintBottom_toTopOf="@+id/add_product_nutritionLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/add_product_option2Layout">
+
+                <TextView
+                    android:id="@+id/add_product_liquidTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@string/add_product_page_8"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/add_product_liquidValue"
+                    />
+
+                <EditText
+                    android:id="@+id/add_product_liquidValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="2dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:paddingHorizontal="10dp"
+                    android:inputType="text"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/input_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_product_liquidTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:hint="100 g"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Nutrition Facts -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_product_nutritionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/add_product_option5Layout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/add_product_nutritionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@string/add_product_page_9"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/add_product_amountLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_text"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="75dp"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/add_product_nutritionTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <TextView
+                        android:id="@+id/add_product_amountTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_10"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/add_product_caloriesTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_13"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_caloriesValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_caloriesValue" />
+
+                    <EditText
+                        android:id="@+id/add_product_caloriesValue"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        android:inputType="numberDecimal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_amountTitle"
+                        android:hint="@string/add_product_page_11" />
+
+                    <View
+                        android:id="@+id/add_product_line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_caloriesValue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/add_product_fatTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_14"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_fatValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_fatValue" />
+
+                    <EditText
+                        android:id="@+id/add_product_fatValue"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_line1"
+                        android:hint="@string/add_product_page_11" />
+
+                    <TextView
+                        android:id="@+id/add_product_fat_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_15"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_fat_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_fat_1_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_fat_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_fatValue"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_fat_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_16"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_fat_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_fat_2_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_fat_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_fat_1_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_fat_3_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_17"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_fat_3_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_fat_3_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_fat_3_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_fat_2_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_fat_4_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_18"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_fat_4_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_fat_4_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_fat_4_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_fat_3_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <View
+                        android:id="@+id/add_product_line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_fat_4_Value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/add_product_proteinTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_19"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_proteinValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_proteinValue"/>
+
+                    <EditText
+                        android:id="@+id/add_product_proteinValue"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_line2"
+                        android:hint="@string/add_product_page_11" />
+
+                    <View
+                        android:id="@+id/add_product_line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_proteinValue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/add_product_carbsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_20"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_carbsValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_carbsValue"/>
+
+                    <EditText
+                        android:id="@+id/add_product_carbsValue"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_line3"
+                        android:hint="@string/add_product_page_11" />
+
+                    <TextView
+                        android:id="@+id/add_product_carbs_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_21"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_carbs_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_carbs_1_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_carbs_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_carbsValue"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_carbs_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_22"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_carbs_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_carbs_2_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_carbs_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_carbs_1_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <View
+                        android:id="@+id/add_product_line4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_carbs_2_Value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/add_product_vitaminsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_23"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_line4"/>
+
+                    <TextView
+                        android:id="@+id/add_product_vitamin_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_24"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_vitamin_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_vitamin_1_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_vitamin_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_vitaminsTitle"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_vitamin_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_25"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_vitamin_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_vitamin_2_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_vitamin_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_vitamin_1_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_vitamin_3_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_26"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_vitamin_3_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_vitamin_3_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_vitamin_3_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_vitamin_2_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_vitamin_4_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_27"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_vitamin_4_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_vitamin_4_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_vitamin_4_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_vitamin_3_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_vitamin_5_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_28"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_vitamin_5_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_vitamin_5_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_vitamin_5_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_vitamin_4_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_vitamin_6_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_29"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_vitamin_6_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_vitamin_6_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_vitamin_6_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_vitamin_5_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_vitamin_7_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_30"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_vitamin_7_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_vitamin_7_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_vitamin_7_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_vitamin_6_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <View
+                        android:id="@+id/add_product_line5"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_vitamin_7_Value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/add_product_mineralsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_31"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_line5"/>
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_32"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_1_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineralsTitle"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_33"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_2_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_1_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_3_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_34"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_3_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_3_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_3_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_2_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_4_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_35"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_4_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_4_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_4_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_3_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_5_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_36"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_5_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_5_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_5_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_4_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_6_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_37"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_6_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_6_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_6_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_5_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_7_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_38"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_7_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_7_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_7_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_6_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_8_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_39"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_8_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_8_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_8_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_7_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_9_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_40"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_9_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_9_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_9_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_8_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_mineral_10_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_41"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_mineral_10_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_mineral_10_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_mineral_10_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_9_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <View
+                        android:id="@+id/add_product_line6"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_mineral_10_Value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/add_product_othersTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_42"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_line6"/>
+
+                    <TextView
+                        android:id="@+id/add_product_other_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_43"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_other_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_other_1_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_other_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_othersTitle"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_other_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_44"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_other_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_other_2_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_other_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_other_1_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_other_3_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_45"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_other_3_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_other_3_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_other_3_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_other_2_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <TextView
+                        android:id="@+id/add_product_other_4_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_48"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/add_product_other_4_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/add_product_other_4_Value"/>
+
+                    <EditText
+                        android:id="@+id/add_product_other_4_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:background="@drawable/background_reverse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_other_3_Value"
+                        android:hint="@string/add_product_page_12" />
+
+                    <View
+                        android:id="@+id/add_product_line7"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginVertical="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/add_product_other_4_Value"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

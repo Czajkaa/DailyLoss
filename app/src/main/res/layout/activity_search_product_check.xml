@@ -1,0 +1,1186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_product_check_titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/search_product_check_infoLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/search_product_check_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand2"
+            android:text="@string/add_product_check_page_1"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/search_product_check_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:fontFamily="@font/quicksand1"
+            android:textAllCaps="false"
+            android:text="@string/search_product_page_2"
+            android:textColor="@drawable/button_5"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_product_check_infoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/input_text"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/search_product_check_titleLayout"
+        app:layout_constraintBottom_toTopOf="@+id/search_product_check_scrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/search_product_check_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerRadius8"
+            android:layout_margin="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/search_product_check_Layout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_product_check_Layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_product_check_image"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/search_product_check_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand1"
+                android:text="Product Name"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/search_product_check_grams"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/search_product_check_servingTitle"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/search_product_check_grams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="000 g"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@+id/search_product_check_servingTitle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/search_product_check_servingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/quicksand1"
+                android:text="@string/add_product_check_page_2"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/search_product_check_servingAmount"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/search_product_check_servingAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:gravity="center"
+                android:layout_marginTop="3dp"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="10dp"
+                android:fontFamily="@font/quicksand2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:background="@drawable/input_text"
+                android:inputType="numberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/search_product_check_servingTitle"
+                app:layout_constraintStart_toStartOf="@+id/search_product_check_servingTitle"
+                app:layout_constraintEnd_toEndOf="@+id/search_product_check_servingTitle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="HardcodedText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/search_product_check_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_product_check_infoLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/search_product_check_nutritionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/search_product_check_nutritionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@string/add_product_page_9"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/search_product_check_amountLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_text"
+                    android:layout_marginTop="5dp"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/search_product_check_nutritionTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/search_product_check_deleteButton"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <TextView
+                        android:id="@+id/search_product_check_amountTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_49"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_caloriesTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_13"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_caloriesValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_caloriesValue" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_caloriesValue"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:gravity="center"
+                        android:text="@string/zero2"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_amountTitle" />
+
+                    <View
+                        android:id="@+id/search_product_check_line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_caloriesValue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_fatTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_14"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_fatValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_fatValue" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_fatValue"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/zero2"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_line1" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_fat_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_15"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_fat_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_fat_1_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_fat_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_fatValue" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_fat_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_16"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_fat_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_fat_2_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_fat_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_fat_1_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_fat_3_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_17"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_fat_3_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_fat_3_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_fat_3_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_fat_2_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_fat_4_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_18"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_fat_4_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_fat_4_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_fat_4_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_fat_3_Value" />
+
+                    <View
+                        android:id="@+id/search_product_check_line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_fat_4_Value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_proteinTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_19"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_proteinValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_proteinValue"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_proteinValue"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_line2" />
+
+                    <View
+                        android:id="@+id/search_product_check_line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_proteinValue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_carbsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_20"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_carbsValue"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_carbsValue"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_carbsValue"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_line3" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_carbs_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_21"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_carbs_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_carbs_1_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_carbs_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_carbsValue" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_carbs_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_22"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_carbs_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_carbs_2_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_carbs_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_carbs_1_Value" />
+
+                    <View
+                        android:id="@+id/search_product_check_line4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_carbs_2_Value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitaminsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_23"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_line4"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_24"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_vitamin_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_vitamin_1_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_vitaminsTitle" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_25"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_vitamin_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_vitamin_2_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_vitamin_1_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_3_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_26"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_vitamin_3_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_vitamin_3_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_3_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_vitamin_2_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_4_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_27"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_vitamin_4_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_vitamin_4_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_4_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_vitamin_3_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_5_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_28"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_vitamin_5_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_vitamin_5_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_5_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_vitamin_4_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_6_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_29"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_vitamin_6_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_vitamin_6_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_6_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_vitamin_5_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_7_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_30"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_vitamin_7_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_vitamin_7_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_vitamin_7_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_vitamin_6_Value" />
+
+                    <View
+                        android:id="@+id/search_product_check_line5"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_vitamin_7_Value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineralsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_31"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_line5"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_32"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_1_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineralsTitle" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_33"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_2_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_1_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_3_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_34"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_3_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_3_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_3_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_2_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_4_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_35"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_4_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_4_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_4_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_3_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_5_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_36"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_5_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_5_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_5_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_4_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_6_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_37"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_6_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_6_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_6_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_5_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_7_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_38"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_7_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_7_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_7_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_6_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_8_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_39"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_8_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_8_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_8_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_7_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_9_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_40"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_9_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_9_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_9_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_8_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_10_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_41"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_mineral_10_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_mineral_10_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_mineral_10_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_9_Value" />
+
+                    <View
+                        android:id="@+id/search_product_check_line6"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_mineral_10_Value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_othersTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_42"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_line6"/>
+
+                    <TextView
+                        android:id="@+id/asearch_product_check_other_1_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_43"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_other_1_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_other_1_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_other_1_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_othersTitle" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_other_2_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_44"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_other_2_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_other_2_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_other_2_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_other_1_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_other_3_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_45"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_other_3_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_other_3_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_other_3_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_other_2_Value" />
+
+                    <TextView
+                        android:id="@+id/search_product_check_other_4_Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="@string/add_product_page_48"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/search_product_check_other_4_Value"
+                        app:layout_constraintBottom_toBottomOf="@+id/search_product_check_other_4_Value"/>
+
+                    <TextView
+                        android:id="@+id/search_product_check_other_4_Value"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/quicksand2"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:text="@string/zero2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_other_3_Value" />
+
+                    <View
+                        android:id="@+id/search_product_check_line7"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/gray"
+                        android:layout_marginVertical="10dp"
+                        app:layout_constraintTop_toBottomOf="@+id/search_product_check_other_4_Value"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Button
+                    android:id="@+id/search_product_check_deleteButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_6"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="185dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="@string/add_product_check_page_3"
+                    android:fontFamily="@font/quicksand2"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textAllCaps="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_product_check_amountLayout"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

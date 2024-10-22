@@ -136,7 +136,67 @@
     <string name="daily_meal_page_11">Total Dinner</string>
 
     <string name="item_meal_1">Calories</string>
-    <string name="item_meal_2">Add Meal</string>
+    <string name="item_meal_2">+ Add Meal</string>
+
+    <string name="add_product_page_1">Create Food</string>
+    <string name="add_product_page_2">Create</string>
+    <string name="add_product_page_3">Food Name</string>
+    <string name="add_product_page_4">Food Image</string>
+    <string name="add_product_page_5">+ Upload</string>
+    <string name="add_product_page_6">Brand</string>
+    <string name="add_product_page_7">Type</string>
+    <string name="add_product_page_8">How much does 100 ml of liquid weight? [g]</string>
+    <string name="add_product_page_9">Nutrition Facts</string>
+    <string name="add_product_page_10">Amount Per 100g</string>
+    <string name="add_product_page_11">Required</string>
+    <string name="add_product_page_12">Optional</string>
+    <string name="add_product_page_13">Calories [kcal]</string>
+    <string name="add_product_page_14">Total Fat [g]</string>
+    <string name="add_product_page_15">Saturated Fat [g]</string>
+    <string name="add_product_page_16">Trans Fat [g]</string>
+    <string name="add_product_page_17">Polyunsaturtared Fat [g]</string>
+    <string name="add_product_page_18">Monounsaturated Fat [g]</string>
+    <string name="add_product_page_19">Protein [g]</string>
+    <string name="add_product_page_20">Carbs [g]</string>
+    <string name="add_product_page_21">Dietary Fiber [g]</string>
+    <string name="add_product_page_22">Sugars [g]</string>
+    <string name="add_product_page_23">Vitamins</string>
+    <string name="add_product_page_24">Vitamin K [g]</string>
+    <string name="add_product_page_25">Vitamin E [g]</string>
+    <string name="add_product_page_26">Vitamin D [g]</string>
+    <string name="add_product_page_27">Vitamin C [g]</string>
+    <string name="add_product_page_28">Vitamin A [g]</string>
+    <string name="add_product_page_29">Vitamin B6 [g]</string>
+    <string name="add_product_page_30">Folic Acid [g]</string>
+    <string name="add_product_page_31">Minerals</string>
+    <string name="add_product_page_32">Zinc [g]</string>
+    <string name="add_product_page_33">Copper [g]</string>
+    <string name="add_product_page_34">Magnesium [g]</string>
+    <string name="add_product_page_35">Manganese [g]</string>
+    <string name="add_product_page_36">Phosphorus [g]</string>
+    <string name="add_product_page_37">Selenium [ug]</string>
+    <string name="add_product_page_38">Sodium [g]</string>
+    <string name="add_product_page_39">Calcium [g]</string>
+    <string name="add_product_page_40">Iron [g]</string>
+    <string name="add_product_page_41">Potassium [g]</string>
+    <string name="add_product_page_42">Other</string>
+    <string name="add_product_page_43">Cholesterol [g]</string>
+    <string name="add_product_page_44">Caffeine [g]</string>
+    <string name="add_product_page_45">Water [g]</string>
+    <string name="add_product_page_46">Change</string>
+    <string name="add_product_page_47">Successfully added!</string>
+    <string name="add_product_page_48">Salt [g]</string>
+    <string name="add_product_page_49">Amount Per Serving</string>
+    <string name="add_product_page_50">Amount Per 100ml</string>
+
+    <string name="add_product_check_page_1">Nutrition Facts</string>
+    <string name="add_product_check_page_2">Serving Size [g]</string>
+    <string name="add_product_check_page_3">Delete product</string>
+
+    <string name="search_product_page_1">Search Food</string>
+    <string name="search_product_page_2">Add</string>
+    <string name="search_product_page_3">Apple, Oats, Tuna</string>
+    <string name="search_product_page_4">Quick Add</string>
 
     <string-array name="activity">
         <item>Sedentary Life Style</item>
@@ -144,6 +204,11 @@
         <item>Moderate Exercise</item>
         <item>Hard Exercise</item>
         <item>Physical Job</item>
+    </string-array>
+
+    <string-array name="product_type">
+        <item>Solid</item>
+        <item>Liquid</item>
     </string-array>
 
     <string-array name="goal">

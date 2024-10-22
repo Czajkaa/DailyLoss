@@ -8,12 +8,15 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import android.content.SharedPreferences
 
-class MyAdapter(
+class MealAdapter(
     private val context: Context,
     private val items: MutableList<List<String>>,
-    private val colors: List<Int>
-) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+    private val colors: List<Int>,
+    private val sharedPreferences: SharedPreferences,
+    private val key: String
+) : RecyclerView.Adapter<MealAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView1: TextView = view.findViewById(R.id.item_meal_title)
@@ -45,6 +48,23 @@ class MyAdapter(
         holder.textView6.setTextColor(ContextCompat.getColor(context, colors[0]))
 
         holder.buttonDelete.setOnClickListener {
+            val editor = sharedPreferences.edit()
+
+            val codeList = SharedPreferenceHelper.getList(context).toMutableList()
+
+            val iterator = codeList.iterator()
+            while (iterator.hasNext()) {
+                val element = iterator.next()
+                if (element == key) {
+                    iterator.remove()
+                }
+            }
+
+            editor.remove("SelectedProductsList")
+            editor.apply()
+            SharedPreferenceHelper2.saveList(context, codeList)
+
+
             removeItem(position)
         }
     }

@@ -59,8 +59,8 @@ class Main_Page : AppCompatActivity() {
 
         ChangeCupOfWater(card1, card2, card3, card4, card5, card6, card7, card8, card9, card10)
 
-        name.text = sharedPreferences.getString("name_value", "Name")
-        subname.text = sharedPreferences.getString("subname_value", "Subname")
+        name.text = sharedPreferences.getString("name_value", "")
+        subname.text = sharedPreferences.getString("subname_value", "")
         DIof.text = (sharedPreferences.getInt("DIoF_value", 0)).toString()
 
         val user = findViewById<ImageButton>(R.id.main_profileButton)

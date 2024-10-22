@@ -3,6 +3,7 @@ package com.example.dailyloss
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -31,6 +32,7 @@ class Daily_Meal : AppCompatActivity() {
     private lateinit var lunchButton: Button
     private lateinit var snackButton: Button
     private lateinit var dinnerButton: Button
+    private lateinit var addProductButton: Button
 
     private var selectedDate: Date? = Calendar.getInstance().time
 
@@ -39,6 +41,8 @@ class Daily_Meal : AppCompatActivity() {
         setContentView(R.layout.activity_daily_meal)
 
         calendar = Calendar.getInstance()
+        val sharedPreferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
 
         monthYearText = findViewById(R.id.monthYearText)
         kcal = findViewById(R.id.daily_meal_macroValue)
@@ -82,6 +86,8 @@ class Daily_Meal : AppCompatActivity() {
         lunchButton = findViewById(R.id.daily_meal_lunchButton)
         snackButton = findViewById(R.id.daily_meal_snackButton)
         dinnerButton = findViewById(R.id.daily_meal_dinnerButton)
+        addProductButton = findViewById(R.id.daily_meal_add_mealButton)
+
         val breakfastPage = Intent(this, Food_Breakfast::class.java)
         breakfastButton.setOnClickListener {
             startActivity(breakfastPage)
@@ -96,7 +102,17 @@ class Daily_Meal : AppCompatActivity() {
         }
         val dinnerPage = Intent(this, Food_Dinner::class.java)
         dinnerButton.setOnClickListener {
+            val dateFormat = SimpleDateFormat("dd_MM_yy", Locale.ENGLISH) // 8_July_2024
+            val key = selectedDate?.let { dateFormat.format(it) }
+            editor.putString("selected_time_to_eat", "Dinner")
+            editor.putString("selected_date", key)
+            editor.apply()
+
             startActivity(dinnerPage)
+        }
+        val addProductPage = Intent(this, Add_Product::class.java)
+        addProductButton.setOnClickListener {
+            startActivity(addProductPage)
         }
     }
 
@@ -160,8 +176,14 @@ class Daily_Meal : AppCompatActivity() {
             "8_July_2024" -> editor.putString(key, "80.0")
             "9_July_2024" -> editor.putString(key, "90.0")
             "10_July_2024" -> editor.putString(key, "100.0")
-            "11_July_2024" -> editor.putString(key, "110.0")
+            "27_September_2024" -> editor.putString(key, "110.0")
         }
         editor.apply()
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+        val mainPage = Intent(this, Main_Page::class.java)
+        startActivity(mainPage)
     }
 }

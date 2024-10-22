@@ -24,10 +24,6 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.window.OnBackInvokedDispatcher
 
-private fun EditText.addTextChangedListener(any: Any) {
-
-}
-
 class Profile : AppCompatActivity() {
     private val sharedPreferencesName = "ScrollPosition"
     private lateinit var scrollView: ScrollView
@@ -57,7 +53,7 @@ class Profile : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
             }
         })
-        nameItem.setText(sharedPreferences.getString("name_value", "Name"))
+        nameItem.setText(sharedPreferences.getString("name_value", ""))
 
         subnameItem.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -69,7 +65,7 @@ class Profile : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
             }
         })
-        subnameItem.setText(sharedPreferences.getString("subname_value", "Subame"))
+        subnameItem.setText(sharedPreferences.getString("subname_value", ""))
 
         // Settings 1 (age, gender)
 
@@ -148,8 +144,9 @@ class Profile : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if(s.toString() != "") {
                     if(s.toString().toInt() <= 120 || s.toString().toInt() >= 300) {
-                        editor.putString("height_value", s.toString())
+                        editor.putString("height_value", "0")
                         editor.apply()
+                        updateStats()
                     } else {
                         editor.putString("height_value", s.toString())
                         editor.apply()
@@ -169,8 +166,9 @@ class Profile : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if(s.toString() != "") {
                     if(s.toString().toDouble() <= 40.0 || s.toString().toDouble() >= 300.0) {
-                        editor.putString("weight_value", s.toString())
+                        editor.putString("weight_value", "0")
                         editor.apply()
+                        updateStats()
                     } else {
                         editor.putString("weight_value", s.toString())
                         editor.apply()

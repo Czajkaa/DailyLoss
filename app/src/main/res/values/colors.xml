@@ -10,6 +10,7 @@
     <color name="background">#FFF5F5F5</color>
     <color name="back_theme">#FFFFFFFF</color>
     <color name="button_1">#FF3399FF</color>
+    <color name="button_6">#FFFF6633</color>
 
     <color name="progressbar_1">#32D32C</color>
     <color name="protein">#D87572</color>
@@ -18,7 +19,8 @@
     <color name="carbs_background">#ced2ff</color>
     <color name="fats">#ffd36d</color>
     <color name="fats_background">#fcf2ca</color>
-    <color name="water">#61CDFF</color>
+    <color name="water">#FF61CDFF</color>
+    <color name="lava">#FFFF8C61</color>
 
     <color name="BMR">#FF0000</color>
     <color name="BMR_background">#FAE1E1</color>

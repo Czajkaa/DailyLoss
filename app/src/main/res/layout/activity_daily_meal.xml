@@ -1007,6 +1007,7 @@
                         android:fontFamily="@font/quicksand2"
                         android:textColor="@color/white"
                         android:textSize="16sp"
+                        android:textAllCaps="false"
                         app:layout_constraintTop_toBottomOf="@+id/daily_meal_dinnerLayout"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
