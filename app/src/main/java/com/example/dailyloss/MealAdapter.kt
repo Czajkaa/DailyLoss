@@ -14,8 +14,7 @@ class MealAdapter(
     private val context: Context,
     private val items: MutableList<List<String>>,
     private val colors: List<Int>,
-    private val sharedPreferences: SharedPreferences,
-    private val key: String
+    private val sharedPreferences: SharedPreferences
 ) : RecyclerView.Adapter<MealAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -49,8 +48,8 @@ class MealAdapter(
 
         holder.buttonDelete.setOnClickListener {
             val editor = sharedPreferences.edit()
-
-            val codeList = SharedPreferenceHelper.getList(context).toMutableList()
+            val codeList = SharedPreferenceHelper2.getList(context).toMutableList()
+            val key = item[6]
 
             val iterator = codeList.iterator()
             while (iterator.hasNext()) {
@@ -61,9 +60,21 @@ class MealAdapter(
             }
 
             editor.remove("SelectedProductsList")
+            var string = key + "_" + "Name"
+            editor.remove(string)
+            string = key + "_" + "Amount"
+            editor.remove(string)
+            string = key + "_" + "Calories"
+            editor.remove(string)
+            string = key + "_" + "Protein"
+            editor.remove(string)
+            string = key + "_" + "Carbs"
+            editor.remove(string)
+            string = key + "_" + "Fats"
+            editor.remove(string)
+
             editor.apply()
             SharedPreferenceHelper2.saveList(context, codeList)
-
 
             removeItem(position)
         }

@@ -1,15 +1,23 @@
 package com.example.dailyloss
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.util.Locale
 
 class Food_Dinner : AppCompatActivity() {
+    private var sum_calories = 0.0
+    private var sum_protein = 0.0
+    private var sum_carbs = 0.0
+    private var sum_fats = 0.0
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var productList: MutableList<String>
     private lateinit var adapter: MealAdapter
@@ -18,6 +26,7 @@ class Food_Dinner : AppCompatActivity() {
         R.color.dinner,
     )
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_food_dinner)
@@ -45,11 +54,38 @@ class Food_Dinner : AppCompatActivity() {
                 }
             }
         }
+
+        val allCalorie_value = findViewById<TextView>(R.id.dinner_macro_macroValue)
+        val allProtein_value = findViewById<TextView>(R.id.dinner_macro_proteinValue)
+        val allCarbs_value = findViewById<TextView>(R.id.dinner_macro_carbsValue)
+        val allFats_value = findViewById<TextView>(R.id.dinner_macro_fatsValue)
+        val allProtein_progress = findViewById<ProgressBar>(R.id.dinner_macro_protein_progressBar)
+        val allCarbs_progress = findViewById<ProgressBar>(R.id.dinner_macro_carbs_progressBar)
+        val allFats_progress = findViewById<ProgressBar>(R.id.dinner_macro_fats_progressBar)
+
+        val maxProtein = sharedPreferences.getInt("protein_g", 0).toDouble() / 4.0
+        val maxCarbs = sharedPreferences.getInt("carbs_g", 0).toDouble() / 4.0
+        val maxFats = sharedPreferences.getInt("fats_g", 0).toDouble() / 4.0
+
+        allCalorie_value.text = String.format(Locale.US, "%.1f", sum_calories)
+        allProtein_value.text = String.format(Locale.US, "%.1f", sum_protein) + "/" + String.format(Locale.US, "%.1f", maxProtein) + " g"
+        allCarbs_value.text = String.format(Locale.US, "%.1f", sum_carbs) + "/" + String.format(Locale.US, "%.1f", maxCarbs) + " g"
+        allFats_value.text = String.format(Locale.US, "%.1f", sum_fats) + "/" + String.format(Locale.US, "%.1f", maxFats) + " g"
+
+        allProtein_progress.progress = (sum_protein / maxProtein * 100).toInt()
+        allCarbs_progress.progress = (sum_carbs / maxCarbs * 100).toInt()
+        allFats_progress.progress = (sum_fats / maxFats * 100).toInt()
+
+        editor.putString(selectedDate + "Dinner" + "DayCalories", String.format(Locale.US, "%.1f", sum_calories))
+        editor.putString(selectedDate + "Dinner" + "DayProtein", String.format(Locale.US, "%.1f", sum_protein))
+        editor.putString(selectedDate + "Dinner" + "DayCarbs", String.format(Locale.US, "%.1f", sum_carbs))
+        editor.putString(selectedDate + "Dinner" + "DayFats", String.format(Locale.US, "%.1f", sum_fats))
+        editor.apply()
     }
 
     private fun newProductView (key: String) {
         val recyclerView: RecyclerView = findViewById(R.id.dinner_macro_recyclerView)
-        adapter = MealAdapter(this, items, colors, sharedPreferences, key)
+        adapter = MealAdapter(this, items, colors, sharedPreferences)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         var string = key + "_" + "Name"
@@ -65,15 +101,27 @@ class Food_Dinner : AppCompatActivity() {
         string = key + "_" + "Fats"
         val fats = sharedPreferences.getString(string, "").toString()
 
+        sum_calories += calories.replace(",", ".").toDouble()
+        sum_protein += protein.replace(",", ".").toDouble()
+        sum_carbs += carbs.replace(",", ".").toDouble()
+        sum_fats += fats.replace(",", ".").toDouble()
+
         val newItem = listOf(
             name,
             "$amount g",
-            "$calories g",
+            "$calories kcal",
             "$protein g",
             "$carbs g",
             "$fats g",
+            key
         )
         adapter.addItem(newItem)
         recyclerView.adapter = adapter
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+        val page = Intent(this, Daily_Meal::class.java)
+        startActivity(page)
     }
 }

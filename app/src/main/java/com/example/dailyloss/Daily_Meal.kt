@@ -13,10 +13,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
 class Daily_Meal : AppCompatActivity() {
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var calendar: Calendar
     private lateinit var recyclerView: RecyclerView
     private lateinit var monthYearText: TextView
@@ -36,12 +38,13 @@ class Daily_Meal : AppCompatActivity() {
 
     private var selectedDate: Date? = Calendar.getInstance().time
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_meal)
 
         calendar = Calendar.getInstance()
-        val sharedPreferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         monthYearText = findViewById(R.id.monthYearText)
@@ -60,6 +63,9 @@ class Daily_Meal : AppCompatActivity() {
             selectedDate = date
             saveTextForSelectedDate(date)
             updateSelectedDateText(date)
+            val dateFormat = SimpleDateFormat("dd_MM_yy", Locale.ENGLISH) // 08_05_24
+            val day_key = selectedDate?.let { dateFormat.format(it) }
+            updateMealValues(day_key)
         }
         recyclerView.adapter = adapter
 
@@ -88,23 +94,37 @@ class Daily_Meal : AppCompatActivity() {
         dinnerButton = findViewById(R.id.daily_meal_dinnerButton)
         addProductButton = findViewById(R.id.daily_meal_add_mealButton)
 
+        val dateFormat = SimpleDateFormat("dd_MM_yy", Locale.ENGLISH) // 08_05_24
+        val day_key = selectedDate?.let { dateFormat.format(it) }
+        updateMealValues(day_key)
+
         val breakfastPage = Intent(this, Food_Breakfast::class.java)
         breakfastButton.setOnClickListener {
+            val key = selectedDate?.let { dateFormat.format(it) }
+            editor.putString("selected_date", key)
+            editor.apply()
+
             startActivity(breakfastPage)
         }
         val lunchPage = Intent(this, Food_Lunch::class.java)
         lunchButton.setOnClickListener {
+            val key = selectedDate?.let { dateFormat.format(it) }
+            editor.putString("selected_date", key)
+            editor.apply()
+
             startActivity(lunchPage)
         }
         val snackPage = Intent(this, Food_Snack::class.java)
         snackButton.setOnClickListener {
+            val key = selectedDate?.let { dateFormat.format(it) }
+            editor.putString("selected_date", key)
+            editor.apply()
+
             startActivity(snackPage)
         }
         val dinnerPage = Intent(this, Food_Dinner::class.java)
         dinnerButton.setOnClickListener {
-            val dateFormat = SimpleDateFormat("dd_MM_yy", Locale.ENGLISH) // 8_July_2024
             val key = selectedDate?.let { dateFormat.format(it) }
-            editor.putString("selected_time_to_eat", "Dinner")
             editor.putString("selected_date", key)
             editor.apply()
 
@@ -114,6 +134,81 @@ class Daily_Meal : AppCompatActivity() {
         addProductButton.setOnClickListener {
             startActivity(addProductPage)
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updateMealValues (day_key: String?) {
+        val breakfast_calories = findViewById<TextView>(R.id.daily_meal_breakfastKcal)
+        val breakfast_protein = findViewById<TextView>(R.id.daily_meal_breakfastProteinUint)
+        val breakfast_carbs = findViewById<TextView>(R.id.daily_meal_breakfastCarbsUint)
+        val breakfast_fats = findViewById<TextView>(R.id.daily_meal_breakfastFatsUint)
+
+        val lunch_calories = findViewById<TextView>(R.id.daily_meal_lunchKcal)
+        val lunch_protein = findViewById<TextView>(R.id.daily_meal_lunchProteinUint)
+        val lunch_carbs = findViewById<TextView>(R.id.daily_meal_lunchCarbsUint)
+        val lunch_fats = findViewById<TextView>(R.id.daily_meal_lunchFatsUint)
+
+        val snack_calories = findViewById<TextView>(R.id.daily_meal_snackKcal)
+        val snack_protein = findViewById<TextView>(R.id.daily_meal_snackProteinUint)
+        val snack_carbs = findViewById<TextView>(R.id.daily_meal_snackCarbsUint)
+        val snack_fats = findViewById<TextView>(R.id.daily_meal_snackFatsUint)
+
+        val dinner_calories = findViewById<TextView>(R.id.daily_meal_dinnerKcal)
+        val dinner_protein = findViewById<TextView>(R.id.daily_meal_dinnerProteinUint)
+        val dinner_carbs = findViewById<TextView>(R.id.daily_meal_dinnerCarbsUint)
+        val dinner_fats = findViewById<TextView>(R.id.daily_meal_dinnerFatsUint)
+
+        var key = day_key + "Breakfast" + "DayCalories"
+        var value = sharedPreferences.getString(key, "0.0")
+        breakfast_calories.text = "$value kcal"
+        key = day_key + "Breakfast" + "DayProtein"
+        value = sharedPreferences.getString(key, "0.0")
+        breakfast_protein.text = "$value kcal"
+        key = day_key + "Breakfast" + "DayCarbs"
+        value = sharedPreferences.getString(key, "0.0")
+        breakfast_carbs.text = "$value kcal"
+        key = day_key + "Breakfast" + "DayFats"
+        value = sharedPreferences.getString(key, "0.0")
+        breakfast_fats.text = "$value kcal"
+
+        key = day_key + "Lunch" + "DayCalories"
+        value = sharedPreferences.getString(key, "0.0")
+        lunch_calories.text = "$value kcal"
+        key = day_key + "Lunch" + "DayProtein"
+        value = sharedPreferences.getString(key, "0.0")
+        lunch_protein.text = "$value kcal"
+        key = day_key + "Lunch" + "DayCarbs"
+        value = sharedPreferences.getString(key, "0.0")
+        lunch_carbs.text = "$value kcal"
+        key = day_key + "Lunch" + "DayFats"
+        value = sharedPreferences.getString(key, "0.0")
+        lunch_fats.text = "$value kcal"
+
+        key = day_key + "Snack" + "DayCalories"
+        value = sharedPreferences.getString(key, "0.0")
+        snack_calories.text = "$value kcal"
+        key = day_key + "Snack" + "DayProtein"
+        value = sharedPreferences.getString(key, "0.0")
+        snack_protein.text = "$value kcal"
+        key = day_key + "Snack" + "DayCarbs"
+        value = sharedPreferences.getString(key, "0.0")
+        snack_carbs.text = "$value kcal"
+        key = day_key + "Snack" + "DayFats"
+        value = sharedPreferences.getString(key, "0.0")
+        snack_fats.text = "$value kcal"
+
+        key = day_key + "Dinner" + "DayCalories"
+        value = sharedPreferences.getString(key, "0.0")
+        dinner_calories.text = "$value kcal"
+        key = day_key + "Dinner" + "DayProtein"
+        value = sharedPreferences.getString(key, "0.0")
+        dinner_protein.text = "$value kcal"
+        key = day_key + "Dinner" + "DayCarbs"
+        value = sharedPreferences.getString(key, "0.0")
+        dinner_carbs.text = "$value kcal"
+        key = day_key + "Dinner" + "DayFats"
+        value = sharedPreferences.getString(key, "0.0")
+        dinner_fats.text = "$value kcal"
     }
 
     private fun getDaysOfWeek(): List<Day> {

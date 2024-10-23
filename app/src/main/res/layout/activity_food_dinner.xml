@@ -121,13 +121,13 @@
                         android:textSize="15sp"
                         android:textColor="@color/dinner"
                         app:layout_constraintTop_toBottomOf="@+id/dinner_macro_proteinTitle"
-                        app:layout_constraintBottom_toTopOf="@+id/dinner_macro_progressBar"
+                        app:layout_constraintBottom_toTopOf="@+id/dinner_macro_protein_progressBar"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         tools:ignore="HardcodedText" />
 
                     <ProgressBar
-                        android:id="@+id/dinner_macro_progressBar"
+                        android:id="@+id/dinner_macro_protein_progressBar"
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:layout_marginHorizontal="3dp"

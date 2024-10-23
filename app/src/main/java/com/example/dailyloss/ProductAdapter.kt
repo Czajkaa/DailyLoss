@@ -1,20 +1,19 @@
 package com.example.dailyloss
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ProductAdapter (
-    private val imageList: List<Bitmap>,
-    private val textList: List<ProductData>
+    private var imageList: List<Bitmap>,
+    private var textList: List<ProductData>
 ) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -52,6 +51,14 @@ class ProductAdapter (
     }
 
     override fun getItemCount(): Int {
-        return imageList.size.coerceAtMost(textList.size)
+        // return imageList.size.coerceAtMost(textList.size)
+        return minOf(textList.size, imageList.size)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateData(newItemList: List<ProductData>, newBitmapList: List<Bitmap>) {
+        textList = newItemList
+        imageList = newBitmapList
+        notifyDataSetChanged()
     }
 }

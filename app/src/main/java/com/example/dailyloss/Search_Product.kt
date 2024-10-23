@@ -6,20 +6,25 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Base64
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class Search_Product : AppCompatActivity() {
+    private lateinit var adapter: ProductAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_product)
 
         val recyclerView: RecyclerView = findViewById(R.id.search_product_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-
+        val filter: EditText = findViewById(R.id.search_product_nameValue)
         val button = findViewById<Button>(R.id.search_product_add)
         val addProductPage = Intent(this, Add_Product::class.java)
         button.setOnClickListener {
@@ -38,9 +43,31 @@ class Search_Product : AppCompatActivity() {
                 readData(codeList[i-1], imageList, textList)
             }
 
-            val adapter = ProductAdapter(imageList, textList)
+            adapter = ProductAdapter(imageList, textList)
             recyclerView.adapter = adapter
         }
+
+        filter.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filterList(s.toString(), textList, imageList)
+            }
+        })
+    }
+
+    private fun filterList(query: String, fullItemList: MutableList<ProductData>, fullBitmapList: MutableList<Bitmap>) {
+        val filteredItemList = fullItemList.filter {
+            it.text1.contains(query, ignoreCase = true) || it.text2.contains(query, ignoreCase = true)
+        }
+
+        val filteredBitmapList = filteredItemList.map {
+            val index = fullItemList.indexOf(it)
+            fullBitmapList[index]
+        }
+
+        // Zaktualizuj dane w adapterze
+        adapter.updateData(filteredItemList, filteredBitmapList)
     }
 
     private fun readData(code: String, imageList: MutableList<Bitmap>, textList: MutableList<ProductData>) {
@@ -63,7 +90,19 @@ class Search_Product : AppCompatActivity() {
 
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
-        val dailyMeal = Intent(this, Daily_Meal::class.java)
-        startActivity(dailyMeal)
+        val sharedPreferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+        val main = Intent(this, Daily_Meal::class.java)
+        val breakfast = Intent(this, Food_Breakfast::class.java)
+        val lunch = Intent(this, Food_Lunch::class.java)
+        val snack = Intent(this, Food_Snack::class.java)
+        val dinner = Intent(this, Food_Dinner::class.java)
+        val time_day = sharedPreferences.getString("selected_time_to_eat", "")
+        when (time_day) {
+            "Breakfast" -> startActivity(breakfast)
+            "Lunch" -> startActivity(lunch)
+            "Snack" -> startActivity(snack)
+            "Dinner" -> startActivity(dinner)
+            else -> startActivity(main)
+        }
     }
 }

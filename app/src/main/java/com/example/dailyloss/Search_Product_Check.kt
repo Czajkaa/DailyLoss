@@ -158,6 +158,7 @@ class Search_Product_Check : AppCompatActivity() {
         servingAmount.onTextChanged { newText ->
             if (newText == null || newText == "") updateAmount(0.0)
             else updateAmount(newText.toDouble())
+            addButton.isEnabled = servingAmountValue != 0.0
         }
     }
 
@@ -173,27 +174,57 @@ class Search_Product_Check : AppCompatActivity() {
             mutableListOf()
         }
 
+        var string = ""
         val code2 = selectedDate + "_" + selected_time_to_eat + "_" + brand + "_" + name
         if (!selectedList.contains(code2)) {
             selectedList.add(code2)
             SharedPreferenceHelper2.saveList(context, selectedList)
+
+            // Name
+            string = code2 + "_" + "Name"
+            editor.putString(string, name)
+            // Amount
+            string = code2 + "_" + "Amount"
+            editor.putString(string, String.format("%.1f", servingAmountValue))
+            // Calories
+            string = code2 + "_" + "Calories"
+            editor.putString(string, String.format("%.1f", calories))
+            // Protein
+            string = code2 + "_" + "Protein"
+            editor.putString(string, String.format("%.1f", protein))
+            // Carbs
+            string = code2 + "_" + "Carbs"
+            editor.putString(string, String.format("%.1f", carbs))
+            // Fats
+            string = code2 + "_" + "Fats"
+            editor.putString(string, String.format("%.1f", fat))
+        }
+        else {
+            // Amount
+            string = code2 + "_" + "Amount"
+            var value1 = sharedPreferences.getString(string, "0.0")?.trim()?.replace(",", ".")?.toDouble()
+            editor.putString(string, String.format("%.1f", servingAmountValue + value1!!))
+            // Calories
+            string = code2 + "_" + "Calories"
+            value1 = sharedPreferences.getString(string, "0.0")?.trim()?.replace(",", ".")?.toDouble()
+            editor.putString(string, String.format("%.1f", calories + value1!!))
+            // Protein
+            string = code2 + "_" + "Protein"
+            value1 = sharedPreferences.getString(string, "0.0")?.trim()?.replace(",", ".")?.toDouble()
+            editor.putString(string, String.format("%.1f", protein + value1!!))
+            // Carbs
+            string = code2 + "_" + "Carbs"
+            value1 = sharedPreferences.getString(string, "0.0")?.trim()?.replace(",", ".")?.toDouble()
+            editor.putString(string, String.format("%.1f", carbs + value1!!))
+            // Fats
+            string = code2 + "_" + "Fats"
+            value1 = sharedPreferences.getString(string, "0.0")?.trim()?.replace(",", ".")?.toDouble()
+            editor.putString(string, String.format("%.1f", fat + value1!!))
         }
 
-        var string = code2 + "_" + "Name"
-        editor.putString(string, name)
-        string = code2 + "_" + "Amount"
-        editor.putString(string, String.format("%.1f", servingAmountValue))
-        string = code2 + "_" + "Calories"
-        editor.putString(string, String.format("%.1f", calories))
-        string = code2 + "_" + "Protein"
-        editor.putString(string, String.format("%.1f", protein))
-        string = code2 + "_" + "Carbs"
-        editor.putString(string, String.format("%.1f", carbs))
-        string = code2 + "_" + "Fats"
-        editor.putString(string, String.format("%.1f", fat))
-
-        editor.apply()
         Toast.makeText(this, R.string.add_product_page_47, Toast.LENGTH_SHORT).show()
+        editor.apply()
+
     }
 
     @SuppressLint("DefaultLocale")
